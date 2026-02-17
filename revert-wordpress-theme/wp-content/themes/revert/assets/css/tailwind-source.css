@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ReVert Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    --background: 120 11% 96%;
+    --foreground: 165 18% 29%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 165 18% 29%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 165 18% 29%;
+
+    --primary: 165 18% 29%;
+    --primary-foreground: 120 11% 96%;
+
+    --secondary: 95 41% 63%;
+    --secondary-foreground: 165 18% 29%;
+
+    --muted: 80 31% 70%;
+    --muted-foreground: 165 18% 40%;
+
+    --accent: 114 39% 49%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 80 31% 85%;
+    --input: 80 31% 85%;
+    --ring: 114 39% 49%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 165 18% 12%;
+    --foreground: 120 11% 96%;
+
+    --card: 165 18% 16%;
+    --card-foreground: 120 11% 96%;
+
+    --popover: 165 18% 16%;
+    --popover-foreground: 120 11% 96%;
+
+    --primary: 114 39% 49%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 165 18% 25%;
+    --secondary-foreground: 120 11% 96%;
+
+    --muted: 165 18% 20%;
+    --muted-foreground: 80 31% 70%;
+
+    --accent: 95 41% 63%;
+    --accent-foreground: 165 18% 12%;
+
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 165 18% 25%;
+    --input: 165 18% 25%;
+    --ring: 114 39% 49%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

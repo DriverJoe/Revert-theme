@@ -1,0 +1,16 @@
+{
+  "name": "revert-theme",
+  "version": "1.0.0",
+  "description": "Custom WordPress theme for ReVert agricultural solutions",
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./assets/css/tailwind-source.css -o ./assets/css/tailwind.min.css --minify",
+    "watch:css": "npx tailwindcss -i ./assets/css/tailwind-source.css -o ./assets/css/tailwind.min.css --watch"
+  },
+  "keywords": ["wordpress", "theme", "tailwindcss"],
+  "author": "HM Engineer",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "tailwindcss": "^3.4.17"
+  }
+}
