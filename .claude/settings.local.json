@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:css:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd WordPress theme converted from React design\n\n- Convert Lovable React app to custom WordPress theme\n- Implement Tailwind CSS with exact design tokens from React\n- Add Alpine.js for interactive navigation and components\n- Create custom post types: Products and Resellers\n- Add ACF Pro field groups for product and reseller data\n- Build page templates: Homepage, Contact, Distributor Locator\n- Implement AJAX-powered distributor search with region filtering\n- Add contact form with email notifications\n- Include newsletter subscription functionality\n- Copy all images from React app\n- Set up responsive navigation \\(desktop dropdowns + mobile menu\\)\n\nTech stack: PHP 8.0+, WordPress 6.0+, Tailwind CSS, Alpine.js, ACF Pro\nReady for deployment to AWS Lightsail\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Bash(chmod:*)"
+    ]
+  }
+}

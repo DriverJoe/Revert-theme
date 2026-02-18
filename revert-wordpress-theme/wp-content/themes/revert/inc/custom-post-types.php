@@ -44,8 +44,8 @@ function revert_register_products_cpt() {
         'hierarchical'       => false,
         'menu_position'      => 20,
         'menu_icon'          => 'dashicons-products',
-        'supports'           => array('title', 'editor', 'thumbnail', 'excerpt'),
-        'show_in_rest'       => true,
+        'supports'           => array('title', 'thumbnail'),
+        'show_in_rest'       => false, // Disable Gutenberg block editor
     );
 
     register_post_type('revert_product', $args);

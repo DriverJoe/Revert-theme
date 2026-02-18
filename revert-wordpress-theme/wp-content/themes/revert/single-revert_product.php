@@ -11,6 +11,7 @@ get_header();
 
 <?php while (have_posts()) : the_post();
     $product_icon = get_field('product_icon');
+    $product_description = get_field('product_description');
     $features = get_field('product_features');
 ?>
 
@@ -56,9 +57,11 @@ get_header();
                     <?php endif; ?>
 
                     <!-- Product Description -->
-                    <div class="prose prose-lg mb-6">
-                        <?php the_content(); ?>
-                    </div>
+                    <?php if ($product_description) : ?>
+                        <div class="prose prose-lg mb-6">
+                            <?php echo $product_description; ?>
+                        </div>
+                    <?php endif; ?>
 
                     <!-- Application Areas -->
                     <?php
