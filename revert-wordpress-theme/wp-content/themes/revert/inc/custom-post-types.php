@@ -53,6 +53,17 @@ function revert_register_products_cpt() {
 add_action('init', 'revert_register_products_cpt');
 
 /**
+ * Forcefully disable Gutenberg editor for products
+ */
+function revert_disable_gutenberg_for_products($use_block_editor, $post_type) {
+    if ($post_type === 'revert_product') {
+        return false;
+    }
+    return $use_block_editor;
+}
+add_filter('use_block_editor_for_post_type', 'revert_disable_gutenberg_for_products', 10, 2);
+
+/**
  * Register Resellers Custom Post Type
  */
 function revert_register_resellers_cpt() {
