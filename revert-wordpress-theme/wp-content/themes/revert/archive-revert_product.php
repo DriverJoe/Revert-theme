@@ -63,8 +63,14 @@ get_header();
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                 <?php while (have_posts()) : the_post();
                     $product_icon = get_field('product_icon');
-                    $features = get_field('product_features');
-                    $feature_count = is_array($features) ? count($features) : 0;
+
+                    // Count features from individual fields
+                    $feature_count = 0;
+                    for ($i = 1; $i <= 4; $i++) {
+                        if (get_field('feature_' . $i . '_title') && get_field('feature_' . $i . '_description')) {
+                            $feature_count++;
+                        }
+                    }
                 ?>
                     <a href="<?php the_permalink(); ?>"
                        class="group bg-card rounded-lg border hover:shadow-lg transition-shadow">

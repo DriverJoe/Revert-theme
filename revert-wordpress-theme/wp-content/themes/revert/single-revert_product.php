@@ -12,7 +12,22 @@ get_header();
 <?php while (have_posts()) : the_post();
     $product_icon = get_field('product_icon');
     $product_description = get_field('product_description');
-    $features = get_field('product_features');
+
+    // Build features array from individual fields
+    $features = array();
+    for ($i = 1; $i <= 4; $i++) {
+        $title = get_field('feature_' . $i . '_title');
+        $description = get_field('feature_' . $i . '_description');
+        $icon = get_field('feature_' . $i . '_icon');
+
+        if ($title && $description) {
+            $features[] = array(
+                'feature_title' => $title,
+                'feature_description' => $description,
+                'feature_icon' => $icon,
+            );
+        }
+    }
 ?>
 
 <section class="py-16">
