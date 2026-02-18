@@ -164,4 +164,64 @@ if (function_exists('acf_add_local_field_group')) {
         'instruction_placement' => 'label',
     ));
 
+    /**
+     * Technical Sheet Details Field Group
+     */
+    acf_add_local_field_group(array(
+        'key' => 'group_tech_sheet_details',
+        'title' => 'Technical Sheet Details',
+        'fields' => array(
+            array(
+                'key' => 'field_tech_sheet_file',
+                'label' => 'PDF Document',
+                'name' => 'tech_sheet_file',
+                'type' => 'file',
+                'instructions' => 'Upload the technical sheet PDF document',
+                'required' => 1,
+                'return_format' => 'array',
+                'library' => 'all',
+                'mime_types' => 'pdf',
+            ),
+            array(
+                'key' => 'field_tech_sheet_version',
+                'label' => 'Version',
+                'name' => 'tech_sheet_version',
+                'type' => 'text',
+                'instructions' => 'Document version (e.g., 1.0, 2.1)',
+                'placeholder' => '1.0',
+            ),
+            array(
+                'key' => 'field_tech_sheet_date',
+                'label' => 'Last Updated',
+                'name' => 'tech_sheet_date',
+                'type' => 'date_picker',
+                'instructions' => 'Date this document was last updated',
+                'display_format' => 'd/m/Y',
+                'return_format' => 'Y-m-d',
+            ),
+            array(
+                'key' => 'field_tech_sheet_size',
+                'label' => 'File Size',
+                'name' => 'tech_sheet_size',
+                'type' => 'text',
+                'instructions' => 'File size (e.g., 2.3 MB) - will be auto-calculated',
+                'readonly' => 1,
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'revert_tech_sheet',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+    ));
+
 }

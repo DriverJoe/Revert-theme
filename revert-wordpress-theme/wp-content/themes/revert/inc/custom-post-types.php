@@ -90,3 +90,43 @@ function revert_register_resellers_cpt() {
     register_post_type('revert_reseller', $args);
 }
 add_action('init', 'revert_register_resellers_cpt');
+
+/**
+ * Register Technical Sheets Custom Post Type
+ */
+function revert_register_technical_sheets_cpt() {
+    $labels = array(
+        'name'                  => _x('Technical Sheets', 'Post type general name', 'revert'),
+        'singular_name'         => _x('Technical Sheet', 'Post type singular name', 'revert'),
+        'menu_name'             => _x('Technical Sheets', 'Admin Menu text', 'revert'),
+        'add_new'               => __('Add New', 'revert'),
+        'add_new_item'          => __('Add New Technical Sheet', 'revert'),
+        'new_item'              => __('New Technical Sheet', 'revert'),
+        'edit_item'             => __('Edit Technical Sheet', 'revert'),
+        'view_item'             => __('View Technical Sheet', 'revert'),
+        'all_items'             => __('All Technical Sheets', 'revert'),
+        'search_items'          => __('Search Technical Sheets', 'revert'),
+        'not_found'             => __('No technical sheets found.', 'revert'),
+        'not_found_in_trash'    => __('No technical sheets found in Trash.', 'revert'),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array('slug' => 'technical-sheets'),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 22,
+        'menu_icon'          => 'dashicons-media-document',
+        'supports'           => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'show_in_rest'       => true,
+    );
+
+    register_post_type('revert_tech_sheet', $args);
+}
+add_action('init', 'revert_register_technical_sheets_cpt');

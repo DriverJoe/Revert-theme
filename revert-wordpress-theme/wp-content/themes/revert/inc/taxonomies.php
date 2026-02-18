@@ -86,5 +86,30 @@ function revert_register_taxonomies() {
         'query_var'         => true,
         'show_in_rest'      => true,
     ));
+
+    // Technical Sheet Category
+    $tech_sheet_category_labels = array(
+        'name'              => _x('Document Categories', 'taxonomy general name', 'revert'),
+        'singular_name'     => _x('Document Category', 'taxonomy singular name', 'revert'),
+        'search_items'      => __('Search Document Categories', 'revert'),
+        'all_items'         => __('All Document Categories', 'revert'),
+        'parent_item'       => __('Parent Document Category', 'revert'),
+        'parent_item_colon' => __('Parent Document Category:', 'revert'),
+        'edit_item'         => __('Edit Document Category', 'revert'),
+        'update_item'       => __('Update Document Category', 'revert'),
+        'add_new_item'      => __('Add New Document Category', 'revert'),
+        'new_item_name'     => __('New Document Category Name', 'revert'),
+        'menu_name'         => __('Document Categories', 'revert'),
+    );
+
+    register_taxonomy('tech_sheet_category', array('revert_tech_sheet'), array(
+        'hierarchical'      => true,
+        'labels'            => $tech_sheet_category_labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array('slug' => 'document-category'),
+        'show_in_rest'      => true,
+    ));
 }
 add_action('init', 'revert_register_taxonomies');

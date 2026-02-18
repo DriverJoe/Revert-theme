@@ -287,26 +287,65 @@ revert/
 └── style.css
 ```
 
+## Content Management
+
+The ReVert WordPress theme provides a comprehensive CMS for managing:
+
+### 1. Products (`revert_product`)
+- Navigate to **Products > Add New** in WordPress admin
+- Managed by client for adding/editing agricultural products
+- Features: Product icons, features list, technical data sheet uploads
+- Taxonomies: Product Categories, Application Areas
+
+### 2. Resellers (`revert_reseller`)
+- Navigate to **Resellers > Add New** in WordPress admin
+- Managed by client for distributor/reseller locations
+- Features: Address, phone, email, website, region assignment
+- Powers the AJAX distributor locator on the website
+
+### 3. Blog Posts (standard WordPress `post`)
+- Navigate to **Posts > Add New** in WordPress admin
+- Managed by client for news, updates, and articles
+- Archive template at `/blog`
+- Single post template with featured images
+- Categories and tags support
+
+### 4. Technical Sheets (`revert_tech_sheet`)
+- Navigate to **Technical Sheets > Add New** in WordPress admin
+- Managed by client for product documentation, PDFs, guides
+- Features: PDF upload, version tracking, categories
+- Archive template at `/technical-sheets`
+- Automatic file size calculation and download buttons
+
+### 5. Page Content
+- Navigate to **Pages** in WordPress admin
+- Client can edit existing page content (Home, About, Contact, etc.)
+- Static pages pre-built by developer, content editable by client
+
 ## Support & Next Steps
 
 ### Priority Items Completed ✅
 
 - Core pages (Home, Contact, Distributor)
 - Products Custom Post Type with ACF
+- Resellers Custom Post Type with AJAX search
+- Blog functionality with archive and single templates
+- Technical Sheets CPT with PDF management
 - Distributor locator with search
 - Tailwind CSS with design tokens
 - Alpine.js navigation
 - Responsive design
+- Content management for all 5 content types
 
 ### Future Enhancements
 
-- About page template
-- Product archive/single templates
+- Product archive/single templates (currently uses default)
 - Additional product category pages
 - n8n webhook integration for contact form
 - Newsletter integration with Brevo
 - Performance optimization
 - SEO meta tags
+- Advanced search/filtering for technical sheets
 
 ## Credits
 
