@@ -23,7 +23,7 @@ get_header();
             Leading the way in sustainable agricultural solutions
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="<?php echo esc_url(home_url('/products/crop-solutions')); ?>"
+            <a href="<?php echo esc_url(home_url('/products')); ?>"
                class="inline-flex items-center justify-center h-11 px-8 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors">
                 Explore Products
                 <?php echo revert_get_icon('arrow-right', 'ml-2 h-5 w-5'); ?>
