@@ -63,12 +63,14 @@ get_header();
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 mb-12">
                 <?php while (have_posts()) : the_post();
                     $product_icon = get_field('product_icon');
+                    $product_description = get_field('product_description');
 
-                    // Count features from individual fields
-                    $feature_count = 0;
+                    // Build features array from individual fields
+                    $features = array();
                     for ($i = 1; $i <= 4; $i++) {
-                        if (get_field('feature_' . $i . '_title') && get_field('feature_' . $i . '_description')) {
-                            $feature_count++;
+                        $title = get_field('feature_' . $i . '_title');
+                        if ($title) {
+                            $features[] = $title;
                         }
                     }
                 ?>
@@ -101,25 +103,24 @@ get_header();
                         <div class="p-2 flex flex-col flex-grow">
                             <h3 class="text-xs font-bold mb-1 line-clamp-2"><?php the_title(); ?></h3>
 
-                            <!-- Application Areas -->
-                            <?php
-                            $product_areas = get_the_terms(get_the_ID(), 'application_area');
-                            if ($product_areas && !is_wp_error($product_areas)) :
-                            ?>
-                                <div class="flex flex-wrap gap-0.5 mb-1">
-                                    <?php foreach (array_slice($product_areas, 0, 2) as $area) : ?>
-                                        <span class="inline-flex items-center px-1 py-0.5 rounded text-[10px] bg-muted text-muted-foreground">
-                                            <?php echo esc_html($area->name); ?>
-                                        </span>
-                                    <?php endforeach; ?>
+                            <!-- Product Excerpt -->
+                            <?php if ($product_description) : ?>
+                                <div class="text-[10px] text-muted-foreground mb-2 line-clamp-2">
+                                    <?php echo wp_strip_all_tags($product_description); ?>
                                 </div>
                             <?php endif; ?>
 
-                            <!-- Features Count -->
-                            <?php if ($feature_count > 0) : ?>
-                                <div class="flex items-center text-[10px] text-muted-foreground mb-1">
-                                    <?php echo revert_get_icon('sprout', 'mr-0.5 h-2.5 w-2.5'); ?>
-                                    <?php echo $feature_count; ?> Features
+                            <!-- Feature Titles -->
+                            <?php if (!empty($features)) : ?>
+                                <div class="mb-2">
+                                    <ul class="space-y-0.5">
+                                        <?php foreach ($features as $feature_title) : ?>
+                                            <li class="flex items-start text-[10px] text-muted-foreground">
+                                                <span class="mr-1">•</span>
+                                                <span class="line-clamp-1"><?php echo esc_html($feature_title); ?></span>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
                                 </div>
                             <?php endif; ?>
 
