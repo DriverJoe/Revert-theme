@@ -73,14 +73,14 @@ get_header();
                     }
                 ?>
                     <a href="<?php the_permalink(); ?>"
-                       class="group bg-card rounded-lg border hover:shadow-lg transition-shadow">
+                       class="group bg-card rounded-lg border hover:shadow-lg transition-shadow overflow-hidden">
                         <!-- Product Image -->
-                        <div class="aspect-square bg-muted rounded-t-lg overflow-hidden relative">
+                        <div class="aspect-[4/3] bg-muted overflow-hidden relative">
                             <?php if (has_post_thumbnail()) : ?>
-                                <?php the_post_thumbnail('medium_large', array('class' => 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-300')); ?>
+                                <?php the_post_thumbnail('medium', array('class' => 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-300')); ?>
                             <?php else : ?>
                                 <div class="w-full h-full flex items-center justify-center">
-                                    <?php echo revert_get_icon($product_icon ?: 'sprout', 'h-24 w-24 text-accent'); ?>
+                                    <?php echo revert_get_icon($product_icon ?: 'sprout', 'h-16 w-16 text-accent'); ?>
                                 </div>
                             <?php endif; ?>
 
@@ -89,8 +89,8 @@ get_header();
                             $product_categories = get_the_terms(get_the_ID(), 'product_category');
                             if ($product_categories && !is_wp_error($product_categories)) :
                             ?>
-                                <div class="absolute top-3 left-3">
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary text-primary-foreground">
+                                <div class="absolute top-2 left-2">
+                                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary text-primary-foreground">
                                         <?php echo esc_html($product_categories[0]->name); ?>
                                     </span>
                                 </div>
@@ -98,23 +98,17 @@ get_header();
                         </div>
 
                         <!-- Product Info -->
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2"><?php the_title(); ?></h3>
-
-                            <?php if (has_excerpt()) : ?>
-                                <p class="text-sm text-muted-foreground mb-4">
-                                    <?php echo wp_trim_words(get_the_excerpt(), 15); ?>
-                                </p>
-                            <?php endif; ?>
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold mb-2 line-clamp-2"><?php the_title(); ?></h3>
 
                             <!-- Application Areas -->
                             <?php
                             $product_areas = get_the_terms(get_the_ID(), 'application_area');
                             if ($product_areas && !is_wp_error($product_areas)) :
                             ?>
-                                <div class="flex flex-wrap gap-1 mb-4">
-                                    <?php foreach (array_slice($product_areas, 0, 3) as $area) : ?>
-                                        <span class="inline-flex items-center px-2 py-1 rounded text-xs bg-muted">
+                                <div class="flex flex-wrap gap-1 mb-3">
+                                    <?php foreach (array_slice($product_areas, 0, 2) as $area) : ?>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-muted text-muted-foreground">
                                             <?php echo esc_html($area->name); ?>
                                         </span>
                                     <?php endforeach; ?>
@@ -123,15 +117,15 @@ get_header();
 
                             <!-- Features Count -->
                             <?php if ($feature_count > 0) : ?>
-                                <div class="flex items-center text-sm text-muted-foreground mb-4">
-                                    <?php echo revert_get_icon('sprout', 'mr-1 h-4 w-4'); ?>
+                                <div class="flex items-center text-xs text-muted-foreground mb-3">
+                                    <?php echo revert_get_icon('sprout', 'mr-1 h-3 w-3'); ?>
                                     <?php echo $feature_count; ?> Key Features
                                 </div>
                             <?php endif; ?>
 
                             <span class="inline-flex items-center text-sm text-primary font-medium group-hover:underline">
-                                View Product
-                                <?php echo revert_get_icon('arrow-right', 'ml-1 h-4 w-4'); ?>
+                                View Details
+                                <?php echo revert_get_icon('arrow-right', 'ml-1 h-3 w-3'); ?>
                             </span>
                         </div>
                     </a>
