@@ -11,7 +11,7 @@
      style="display: none;">
 
     <!-- Overlay -->
-    <div class="fixed inset-0 bg-black/80"></div>
+    <div class="fixed inset-0 bg-black/80 z-40"></div>
 
     <!-- Sheet Content -->
     <div x-show="mobileMenuOpen"
@@ -21,7 +21,8 @@
          x-transition:leave="transition ease-in duration-200 transform"
          x-transition:leave-start="translate-x-0"
          x-transition:leave-end="translate-x-full"
-         class="fixed right-0 top-0 h-full w-[300px] bg-background p-6 shadow-lg border-l">
+         class="fixed right-0 top-0 h-full w-[300px] bg-background p-6 shadow-lg border-l z-50"
+         style="background-color: hsl(var(--background));">
 
         <!-- Close Button -->
         <button @click="mobileMenuOpen = false" class="absolute right-4 top-4 p-2" aria-label="Close menu">
