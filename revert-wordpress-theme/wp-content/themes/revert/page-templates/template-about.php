@@ -50,13 +50,13 @@ get_header();
                             <?php the_post_thumbnail('large', array('class' => 'w-full h-full object-cover')); ?>
                         <?php else : ?>
                             <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-accent/20 to-secondary/20">
-                                <?php echo revert_get_icon('sprout', 'h-24 w-24 text-accent/40'); ?>
+                                <?php echo revert_get_icon('sprout', 'h-10 w-10 text-accent/40'); ?>
                             </div>
                         <?php endif; ?>
                     </div>
                     <!-- Floating stat card -->
                     <div class="absolute -bottom-6 -left-6 bg-card rounded-lg shadow-lg p-4 border">
-                        <span class="text-3xl font-bold text-accent">10+</span>
+                        <span class="text-2xl font-bold text-accent">10+</span>
                         <p class="text-xs text-muted-foreground">Years of Research</p>
                     </div>
                 </div>
@@ -77,8 +77,8 @@ get_header();
 
         <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div class="bg-card rounded-lg p-6 border text-center">
-                <div class="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                    <?php echo revert_get_icon('sprout', 'h-7 w-7 text-accent'); ?>
+                <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                    <?php echo revert_get_icon('sprout', 'h-4 w-4 text-accent'); ?>
                 </div>
                 <h3 class="text-lg font-bold mb-2">Visible Results Fast</h3>
                 <p class="text-sm text-muted-foreground">
@@ -86,8 +86,8 @@ get_header();
                 </p>
             </div>
             <div class="bg-card rounded-lg p-6 border text-center">
-                <div class="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                    <?php echo revert_get_icon('shield', 'h-7 w-7 text-accent'); ?>
+                <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                    <?php echo revert_get_icon('shield', 'h-4 w-4 text-accent'); ?>
                 </div>
                 <h3 class="text-lg font-bold mb-2">Reduce Chemical Inputs</h3>
                 <p class="text-sm text-muted-foreground">
@@ -95,8 +95,8 @@ get_header();
                 </p>
             </div>
             <div class="bg-card rounded-lg p-6 border text-center">
-                <div class="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                    <?php echo revert_get_icon('leaf', 'h-7 w-7 text-accent'); ?>
+                <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                    <?php echo revert_get_icon('leaf', 'h-4 w-4 text-accent'); ?>
                 </div>
                 <h3 class="text-lg font-bold mb-2">Every Soil Counts</h3>
                 <p class="text-sm text-muted-foreground">
@@ -125,7 +125,7 @@ get_header();
 
                 <!-- Item 1 -->
                 <div class="flex gap-6 mb-12">
-                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-accent flex items-center justify-center text-accent-foreground font-bold text-sm z-10">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent flex items-center justify-center text-accent-foreground font-bold text-sm z-10">
                         2014
                     </div>
                     <div class="pt-3">
@@ -138,7 +138,7 @@ get_header();
 
                 <!-- Item 2 -->
                 <div class="flex gap-6 mb-12">
-                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-secondary flex items-center justify-center text-secondary-foreground font-bold text-sm z-10">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-secondary-foreground font-bold text-sm z-10">
                         2018
                     </div>
                     <div class="pt-3">
@@ -151,7 +151,7 @@ get_header();
 
                 <!-- Item 3 -->
                 <div class="flex gap-6 mb-12">
-                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm z-10">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm z-10">
                         2022
                     </div>
                     <div class="pt-3">
@@ -164,7 +164,7 @@ get_header();
 
                 <!-- Item 4 -->
                 <div class="flex gap-6">
-                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-accent flex items-center justify-center text-accent-foreground font-bold text-sm z-10">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent flex items-center justify-center text-accent-foreground font-bold text-sm z-10">
                         Now
                     </div>
                     <div class="pt-3">
@@ -191,8 +191,8 @@ get_header();
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             <div class="text-center p-6">
-                <div class="w-14 h-14 rounded-full bg-primary-foreground/10 flex items-center justify-center mx-auto mb-4">
-                    <?php echo revert_get_icon('heart', 'h-7 w-7 text-secondary'); ?>
+                <div class="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center mx-auto mb-4">
+                    <?php echo revert_get_icon('heart', 'h-4 w-4 text-secondary'); ?>
                 </div>
                 <h3 class="font-bold mb-2">Family First</h3>
                 <p class="text-sm opacity-80">
@@ -200,8 +200,8 @@ get_header();
                 </p>
             </div>
             <div class="text-center p-6">
-                <div class="w-14 h-14 rounded-full bg-primary-foreground/10 flex items-center justify-center mx-auto mb-4">
-                    <?php echo revert_get_icon('microscope', 'h-7 w-7 text-secondary'); ?>
+                <div class="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center mx-auto mb-4">
+                    <?php echo revert_get_icon('microscope', 'h-4 w-4 text-secondary'); ?>
                 </div>
                 <h3 class="font-bold mb-2">Science-Backed</h3>
                 <p class="text-sm opacity-80">
@@ -209,8 +209,8 @@ get_header();
                 </p>
             </div>
             <div class="text-center p-6">
-                <div class="w-14 h-14 rounded-full bg-primary-foreground/10 flex items-center justify-center mx-auto mb-4">
-                    <?php echo revert_get_icon('sprout', 'h-7 w-7 text-secondary'); ?>
+                <div class="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center mx-auto mb-4">
+                    <?php echo revert_get_icon('sprout', 'h-4 w-4 text-secondary'); ?>
                 </div>
                 <h3 class="font-bold mb-2">Regenerative</h3>
                 <p class="text-sm opacity-80">
@@ -218,8 +218,8 @@ get_header();
                 </p>
             </div>
             <div class="text-center p-6">
-                <div class="w-14 h-14 rounded-full bg-primary-foreground/10 flex items-center justify-center mx-auto mb-4">
-                    <?php echo revert_get_icon('trending-up', 'h-7 w-7 text-secondary'); ?>
+                <div class="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center mx-auto mb-4">
+                    <?php echo revert_get_icon('trending-up', 'h-4 w-4 text-secondary'); ?>
                 </div>
                 <h3 class="font-bold mb-2">Results-Driven</h3>
                 <p class="text-sm opacity-80">
