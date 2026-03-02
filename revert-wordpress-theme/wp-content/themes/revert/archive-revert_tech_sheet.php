@@ -73,7 +73,7 @@ get_header();
                                                 <?php endif; ?>
 
                                                 <?php if ($file_size) : ?>
-                                                    <span>Size: <?php echo $file_size; ?></span>
+                                                    <span>Size: <?php echo esc_html($file_size); ?></span>
                                                 <?php endif; ?>
 
                                                 <?php

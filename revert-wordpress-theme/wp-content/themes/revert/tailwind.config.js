@@ -5,6 +5,7 @@ module.exports = {
     './template-parts/**/*.php',
     './page-templates/**/*.php',
     './inc/**/*.php',
+    './assets/js/**/*.js',
   ],
   darkMode: 'class',
   theme: {

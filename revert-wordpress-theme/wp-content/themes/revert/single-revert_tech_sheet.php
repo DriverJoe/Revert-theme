@@ -51,7 +51,7 @@ get_header();
                             <?php if ($file_size) : ?>
                                 <span class="inline-flex items-center">
                                     <?php echo revert_get_icon('hard-drive', 'mr-1 h-4 w-4'); ?>
-                                    <?php echo $file_size; ?>
+                                    <?php echo esc_html($file_size); ?>
                                 </span>
                             <?php endif; ?>
 

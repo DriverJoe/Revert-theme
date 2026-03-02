@@ -65,7 +65,7 @@ get_header();
                         <!-- Category Icon/Image Area -->
                         <div class="aspect-video bg-gradient-to-br from-accent/10 to-primary/10 rounded-t-lg flex items-center justify-center relative overflow-hidden">
                             <div class="absolute inset-0 bg-accent/5 group-hover:bg-accent/10 transition-colors"></div>
-                            <?php echo revert_get_icon($icon, 'h-20 w-20 text-accent relative z-10 group-hover:scale-110 transition-transform duration-300'); ?>
+                            <?php echo revert_get_icon($icon, 'h-12 w-12 text-accent relative z-10 group-hover:scale-110 transition-transform duration-300'); ?>
                         </div>
 
                         <!-- Category Info -->

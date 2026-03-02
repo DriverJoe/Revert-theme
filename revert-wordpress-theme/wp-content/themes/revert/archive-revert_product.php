@@ -92,7 +92,7 @@ get_header();
                             if ($product_categories && !is_wp_error($product_categories)) :
                             ?>
                                 <div class="absolute top-1 left-1">
-                                    <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-medium bg-primary text-primary-foreground">
+                                    <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium bg-primary text-primary-foreground">
                                         <?php echo esc_html($product_categories[0]->name); ?>
                                     </span>
                                 </div>
@@ -105,8 +105,8 @@ get_header();
 
                             <!-- Product Excerpt -->
                             <?php if ($product_description) : ?>
-                                <div class="text-[10px] text-muted-foreground mb-2 line-clamp-2">
-                                    <?php echo wp_strip_all_tags($product_description); ?>
+                                <div class="text-xs text-muted-foreground mb-2 line-clamp-2">
+                                    <?php echo esc_html(wp_strip_all_tags($product_description)); ?>
                                 </div>
                             <?php endif; ?>
 
@@ -115,7 +115,7 @@ get_header();
                                 <div class="mb-2">
                                     <ul class="space-y-0.5">
                                         <?php foreach ($features as $feature_title) : ?>
-                                            <li class="flex items-start text-[10px] text-muted-foreground">
+                                            <li class="flex items-start text-xs text-muted-foreground">
                                                 <span class="mr-1">•</span>
                                                 <span class="line-clamp-1"><?php echo esc_html($feature_title); ?></span>
                                             </li>
@@ -125,7 +125,7 @@ get_header();
                             <?php endif; ?>
 
                             <div class="mt-auto">
-                                <span class="inline-flex items-center text-[10px] text-primary font-medium group-hover:underline">
+                                <span class="inline-flex items-center text-xs text-primary font-medium group-hover:underline">
                                     View Details
                                     <?php echo revert_get_icon('arrow-right', 'ml-0.5 h-2.5 w-2.5'); ?>
                                 </span>

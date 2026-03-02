@@ -74,7 +74,7 @@ get_header();
                     <!-- Product Description -->
                     <?php if ($product_description) : ?>
                         <div class="prose prose-lg mb-6">
-                            <?php echo $product_description; ?>
+                            <?php echo wp_kses_post($product_description); ?>
                         </div>
                     <?php endif; ?>
 

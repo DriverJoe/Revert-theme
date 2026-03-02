@@ -26,9 +26,9 @@ function revert_enqueue_assets() {
     // Alpine.js (from CDN)
     wp_enqueue_script(
         'alpine',
-        'https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js',
+        'https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js',
         array(),
-        '3.0',
+        '3.14.8',
         array('strategy' => 'defer')
     );
 

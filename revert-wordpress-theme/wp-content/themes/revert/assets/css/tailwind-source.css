@@ -80,7 +80,7 @@
 
 @layer utilities {
   .animate-fade-in {
-    animation: fadeIn 0.8s ease-in;
+    animation: fadeIn 0.8s ease-out;
   }
 
   @keyframes fadeIn {
