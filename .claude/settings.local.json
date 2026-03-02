@@ -10,7 +10,8 @@
       "Bash(git commit:*)",
       "Bash(chmod:*)",
       "WebFetch(domain:bactivate.com.au)",
-      "WebFetch(domain:joe-githheme.zm6fwn.easypanel.host)"
+      "WebFetch(domain:joe-githheme.zm6fwn.easypanel.host)",
+      "Bash(npx tailwindcss -i ./assets/css/tailwind-source.css -o ./assets/css/tailwind.min.css --minify)"
     ]
   }
 }
