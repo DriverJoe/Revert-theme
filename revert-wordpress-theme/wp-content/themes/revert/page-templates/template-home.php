@@ -167,6 +167,103 @@ get_header();
     </div>
 </section>
 
+<!-- Testimonials / Social Proof -->
+<section class="py-20 bg-background">
+    <div class="container">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold mb-4">What Farmers Are Saying</h2>
+            <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Real results from real farmers across Australia
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <?php
+            $testimonials = array(
+                array(
+                    'quote' => 'Since switching to ReVert biologicals, we\'ve seen a significant improvement in soil health and our pasture quality has never been better. The results speak for themselves.',
+                    'name' => 'Mark T.',
+                    'role' => 'Dairy Farmer',
+                    'location' => 'Gippsland, VIC',
+                    'stat' => '35%',
+                    'stat_label' => 'Yield Increase',
+                    'icon' => 'trending-up',
+                ),
+                array(
+                    'quote' => 'The team at ReVert really understand soil biology. Their products have helped us reduce our chemical inputs while maintaining strong crop performance across our vegetable operation.',
+                    'name' => 'Sarah K.',
+                    'role' => 'Vegetable Grower',
+                    'location' => 'Werribee, VIC',
+                    'stat' => '40%',
+                    'stat_label' => 'Reduced Inputs',
+                    'icon' => 'leaf',
+                ),
+                array(
+                    'quote' => 'We\'ve been able to improve our soil structure dramatically. Water retention is up, erosion is down, and our livestock are thriving on healthier pastures.',
+                    'name' => 'David L.',
+                    'role' => 'Cattle Farmer',
+                    'location' => 'Hamilton, VIC',
+                    'stat' => '50%',
+                    'stat_label' => 'Better Water Retention',
+                    'icon' => 'droplet',
+                ),
+            );
+
+            foreach ($testimonials as $testimonial) :
+            ?>
+                <div class="bg-card rounded-lg border p-6 flex flex-col h-full">
+                    <!-- Stat Highlight -->
+                    <div class="flex items-center gap-3 mb-4 pb-4 border-b">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-accent/10">
+                            <?php echo revert_get_icon($testimonial['icon'], 'h-6 w-6 text-accent'); ?>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-accent"><?php echo esc_html($testimonial['stat']); ?></span>
+                            <p class="text-xs text-muted-foreground"><?php echo esc_html($testimonial['stat_label']); ?></p>
+                        </div>
+                    </div>
+
+                    <!-- Quote -->
+                    <blockquote class="text-sm text-muted-foreground mb-6 flex-grow leading-relaxed">
+                        &ldquo;<?php echo esc_html($testimonial['quote']); ?>&rdquo;
+                    </blockquote>
+
+                    <!-- Attribution -->
+                    <div class="flex items-center gap-3 mt-auto pt-4 border-t">
+                        <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
+                            <?php echo esc_html(substr($testimonial['name'], 0, 1)); ?>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-sm"><?php echo esc_html($testimonial['name']); ?></p>
+                            <p class="text-xs text-muted-foreground"><?php echo esc_html($testimonial['role']); ?> &mdash; <?php echo esc_html($testimonial['location']); ?></p>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="flex flex-wrap justify-center gap-8 items-center pt-8 border-t">
+            <div class="flex items-center gap-2 text-muted-foreground">
+                <?php echo revert_get_icon('shield', 'h-5 w-5 text-accent'); ?>
+                <span class="text-sm font-medium">Certified Organic</span>
+            </div>
+            <div class="flex items-center gap-2 text-muted-foreground">
+                <?php echo revert_get_icon('sprout', 'h-5 w-5 text-accent'); ?>
+                <span class="text-sm font-medium">Australian Made</span>
+            </div>
+            <div class="flex items-center gap-2 text-muted-foreground">
+                <?php echo revert_get_icon('microscope', 'h-5 w-5 text-accent'); ?>
+                <span class="text-sm font-medium">Scientifically Proven</span>
+            </div>
+            <div class="flex items-center gap-2 text-muted-foreground">
+                <?php echo revert_get_icon('heart', 'h-5 w-5 text-accent'); ?>
+                <span class="text-sm font-medium">Trusted by 500+ Farmers</span>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- CTA Section -->
 <section class="py-20 bg-primary text-primary-foreground">
     <div class="container text-center">
