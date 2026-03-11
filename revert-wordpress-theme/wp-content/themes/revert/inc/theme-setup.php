@@ -44,6 +44,29 @@ function revert_theme_setup() {
 add_action('after_setup_theme', 'revert_theme_setup');
 
 /**
+ * Disable Gutenberg block editor for pages using ACF-powered templates.
+ * This ensures ACF fields are prominently displayed in the classic editor.
+ */
+function revert_disable_gutenberg_for_templates($use_block_editor, $post) {
+    if ($post && $post->post_type === 'page') {
+        $template = get_post_meta($post->ID, '_wp_page_template', true);
+        $acf_templates = array(
+            'page-templates/template-home.php',
+            'page-templates/template-about.php',
+            'page-templates/template-contact.php',
+            'page-templates/template-products-overview.php',
+            'page-templates/template-distributor.php',
+            'page-templates/template-crop-solutions.php',
+        );
+        if (in_array($template, $acf_templates, true)) {
+            return false;
+        }
+    }
+    return $use_block_editor;
+}
+add_filter('use_block_editor_for_post', 'revert_disable_gutenberg_for_templates', 10, 2);
+
+/**
  * Helper function for SVG icons
  *
  * @param string $icon_name Icon name
