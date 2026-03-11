@@ -7,14 +7,22 @@
  */
 
 get_header();
+
+$contact_title = get_field('contact_title') ?: 'Contact Us';
+$contact_subtitle = get_field('contact_subtitle') ?: 'Get in touch with our team. We\'re here to help with any questions.';
+$contact_email = get_field('contact_email') ?: 'info@revertagri.com.au';
+$contact_phone = get_field('contact_phone') ?: '+61 2 3456 7890';
+$contact_location = get_field('contact_location') ?: 'Australia';
+$contact_form_title = get_field('contact_form_title') ?: 'Send Us A Message';
+$contact_form_subtitle = get_field('contact_form_subtitle') ?: 'Fill out the form below and we\'ll get back to you within 24 hours';
 ?>
 
 <section class="py-16 bg-muted">
     <div class="container">
         <div class="max-w-3xl mx-auto text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4"><?php echo esc_html($contact_title); ?></h1>
             <p class="text-xl text-muted-foreground">
-                Get in touch with our team. We're here to help with any questions.
+                <?php echo esc_html($contact_subtitle); ?>
             </p>
         </div>
 
@@ -23,16 +31,16 @@ get_header();
             <div class="bg-card rounded-lg border p-6 text-center">
                 <?php echo revert_get_icon('mail', 'h-12 w-12 text-accent mx-auto mb-4'); ?>
                 <h3 class="text-xl font-bold mb-2">Email</h3>
-                <a href="mailto:info@revertagri.com.au" class="text-muted-foreground hover:text-primary transition-colors">
-                    info@revertagri.com.au
+                <a href="mailto:<?php echo esc_attr($contact_email); ?>" class="text-muted-foreground hover:text-primary transition-colors">
+                    <?php echo esc_html($contact_email); ?>
                 </a>
             </div>
 
             <div class="bg-card rounded-lg border p-6 text-center">
                 <?php echo revert_get_icon('phone', 'h-12 w-12 text-accent mx-auto mb-4'); ?>
                 <h3 class="text-xl font-bold mb-2">Phone</h3>
-                <a href="tel:+61234567890" class="text-muted-foreground hover:text-primary transition-colors">
-                    +61 2 3456 7890
+                <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $contact_phone)); ?>" class="text-muted-foreground hover:text-primary transition-colors">
+                    <?php echo esc_html($contact_phone); ?>
                 </a>
             </div>
 
@@ -40,16 +48,16 @@ get_header();
                 <?php echo revert_get_icon('map-pin', 'h-12 w-12 text-accent mx-auto mb-4'); ?>
                 <h3 class="text-xl font-bold mb-2">Location</h3>
                 <p class="text-muted-foreground">
-                    Australia
+                    <?php echo esc_html($contact_location); ?>
                 </p>
             </div>
         </div>
 
         <!-- Contact Form -->
         <div class="max-w-2xl mx-auto bg-card rounded-lg border p-8" x-data="contactForm()">
-            <h3 class="text-2xl font-bold mb-2">Send Us A Message</h3>
+            <h3 class="text-2xl font-bold mb-2"><?php echo esc_html($contact_form_title); ?></h3>
             <p class="text-muted-foreground mb-6">
-                Fill out the form below and we'll get back to you within 24 hours
+                <?php echo esc_html($contact_form_subtitle); ?>
             </p>
 
             <form @submit.prevent="submitForm" class="space-y-6">

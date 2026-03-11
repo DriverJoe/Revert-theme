@@ -9,20 +9,25 @@
 get_header();
 ?>
 
+<?php $distributor_title = get_field('distributor_title') ?: 'Find A Distributor'; ?>
+<?php $distributor_subtitle = get_field('distributor_subtitle') ?: 'Connect with authorized ReVert distributors in your area'; ?>
+<?php $distributor_search_title = get_field('distributor_search_title') ?: 'Search for Distributors'; ?>
+<?php $distributor_search_subtitle = get_field('distributor_search_subtitle') ?: 'Filter by region to find distributors near you'; ?>
+
 <section class="py-16 bg-muted" x-data="distributorLocator()">
     <div class="container">
         <div class="max-w-3xl mx-auto text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Find A Distributor</h1>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4"><?php echo esc_html($distributor_title); ?></h1>
             <p class="text-xl text-muted-foreground">
-                Connect with authorized ReVert distributors in your area
+                <?php echo esc_html($distributor_subtitle); ?>
             </p>
         </div>
 
         <!-- Search Filter -->
         <div class="max-w-2xl mx-auto mb-12">
             <div class="bg-card rounded-lg border p-6">
-                <h3 class="text-xl font-bold mb-2">Search for Distributors</h3>
-                <p class="text-muted-foreground mb-4">Filter by region to find distributors near you</p>
+                <h3 class="text-xl font-bold mb-2"><?php echo esc_html($distributor_search_title); ?></h3>
+                <p class="text-muted-foreground mb-4"><?php echo esc_html($distributor_search_subtitle); ?></p>
 
                 <div class="grid md:grid-cols-2 gap-4">
                     <input type="text"

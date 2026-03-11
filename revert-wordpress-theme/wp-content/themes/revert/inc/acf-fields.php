@@ -653,4 +653,270 @@ if (function_exists('acf_add_local_field_group')) {
         'instruction_placement' => 'label',
     ));
 
+    /**
+     * About Page Content Field Group
+     */
+    acf_add_local_field_group(array(
+        'key' => 'group_about_content',
+        'title' => 'About Page Content',
+        'fields' => array(
+
+            // --- Hero Section ---
+            array('key' => 'field_about_hero_tab', 'label' => 'Hero', 'type' => 'tab'),
+            array('key' => 'field_about_hero_tagline', 'label' => 'Hero Tagline', 'name' => 'about_hero_tagline', 'type' => 'text', 'placeholder' => 'Our Story'),
+            array('key' => 'field_about_hero_title', 'label' => 'Hero Title', 'name' => 'about_hero_title', 'type' => 'text', 'placeholder' => 'Our mission starts with our sons and daughters.'),
+            array('key' => 'field_about_hero_subtitle', 'label' => 'Hero Subtitle', 'name' => 'about_hero_subtitle', 'type' => 'text', 'placeholder' => 'It\'s our succession.'),
+
+            // --- Mission Section ---
+            array('key' => 'field_about_mission_tab', 'label' => 'Mission', 'type' => 'tab'),
+            array('key' => 'field_about_mission_title', 'label' => 'Mission Title', 'name' => 'about_mission_title', 'type' => 'text', 'placeholder' => 'Bringing generational prosperity to farmers through soil regeneration.'),
+            array('key' => 'field_about_mission_text_1', 'label' => 'Mission Text 1', 'name' => 'about_mission_text_1', 'type' => 'textarea', 'rows' => 3),
+            array('key' => 'field_about_mission_text_2', 'label' => 'Mission Text 2', 'name' => 'about_mission_text_2', 'type' => 'textarea', 'rows' => 3),
+            array('key' => 'field_about_mission_text_3', 'label' => 'Mission Text 3', 'name' => 'about_mission_text_3', 'type' => 'textarea', 'rows' => 3),
+            array('key' => 'field_about_stat_value', 'label' => 'Stat Value', 'name' => 'about_stat_value', 'type' => 'text', 'placeholder' => '10+'),
+            array('key' => 'field_about_stat_label', 'label' => 'Stat Label', 'name' => 'about_stat_label', 'type' => 'text', 'placeholder' => 'Years of Farm Research'),
+
+            // --- Why Soil Section ---
+            array('key' => 'field_about_soil_tab', 'label' => 'Why Soil', 'type' => 'tab'),
+            array('key' => 'field_about_soil_title', 'label' => 'Section Title', 'name' => 'about_soil_title', 'type' => 'text', 'placeholder' => 'Why Soil Regeneration Matters'),
+            array('key' => 'field_about_soil_subtitle', 'label' => 'Section Subtitle', 'name' => 'about_soil_subtitle', 'type' => 'text'),
+            // Soil Card 1
+            array('key' => 'field_about_soil_card_1_icon', 'label' => 'Card 1 - Icon', 'name' => 'about_soil_card_1_icon', 'type' => 'select', 'choices' => array('sprout' => 'Sprout', 'shield' => 'Shield', 'leaf' => 'Leaf', 'heart' => 'Heart', 'microscope' => 'Microscope', 'droplet' => 'Droplet', 'trending-up' => 'Trending Up'), 'default_value' => 'sprout'),
+            array('key' => 'field_about_soil_card_1_title', 'label' => 'Card 1 - Title', 'name' => 'about_soil_card_1_title', 'type' => 'text', 'placeholder' => 'Visible Results Fast'),
+            array('key' => 'field_about_soil_card_1_text', 'label' => 'Card 1 - Text', 'name' => 'about_soil_card_1_text', 'type' => 'textarea', 'rows' => 3),
+            // Soil Card 2
+            array('key' => 'field_about_soil_card_2_icon', 'label' => 'Card 2 - Icon', 'name' => 'about_soil_card_2_icon', 'type' => 'select', 'choices' => array('sprout' => 'Sprout', 'shield' => 'Shield', 'leaf' => 'Leaf', 'heart' => 'Heart', 'microscope' => 'Microscope', 'droplet' => 'Droplet', 'trending-up' => 'Trending Up'), 'default_value' => 'shield'),
+            array('key' => 'field_about_soil_card_2_title', 'label' => 'Card 2 - Title', 'name' => 'about_soil_card_2_title', 'type' => 'text', 'placeholder' => 'Reduce Chemical Inputs'),
+            array('key' => 'field_about_soil_card_2_text', 'label' => 'Card 2 - Text', 'name' => 'about_soil_card_2_text', 'type' => 'textarea', 'rows' => 3),
+            // Soil Card 3
+            array('key' => 'field_about_soil_card_3_icon', 'label' => 'Card 3 - Icon', 'name' => 'about_soil_card_3_icon', 'type' => 'select', 'choices' => array('sprout' => 'Sprout', 'shield' => 'Shield', 'leaf' => 'Leaf', 'heart' => 'Heart', 'microscope' => 'Microscope', 'droplet' => 'Droplet', 'trending-up' => 'Trending Up'), 'default_value' => 'leaf'),
+            array('key' => 'field_about_soil_card_3_title', 'label' => 'Card 3 - Title', 'name' => 'about_soil_card_3_title', 'type' => 'text', 'placeholder' => 'Every Soil Counts'),
+            array('key' => 'field_about_soil_card_3_text', 'label' => 'Card 3 - Text', 'name' => 'about_soil_card_3_text', 'type' => 'textarea', 'rows' => 3),
+
+            // --- Approach Section ---
+            array('key' => 'field_about_approach_tab', 'label' => 'Approach', 'type' => 'tab'),
+            array('key' => 'field_about_approach_tagline', 'label' => 'Approach Tagline', 'name' => 'about_approach_tagline', 'type' => 'text', 'placeholder' => 'Our Approach'),
+            array('key' => 'field_about_approach_title', 'label' => 'Approach Title', 'name' => 'about_approach_title', 'type' => 'text', 'placeholder' => 'Biology-First Soil Regeneration'),
+            array('key' => 'field_about_approach_text_1', 'label' => 'Approach Text 1', 'name' => 'about_approach_text_1', 'type' => 'textarea', 'rows' => 3),
+            array('key' => 'field_about_approach_text_2', 'label' => 'Approach Text 2', 'name' => 'about_approach_text_2', 'type' => 'textarea', 'rows' => 3),
+            // Approach Feature 1
+            array('key' => 'field_about_approach_feature_1_icon', 'label' => 'Feature 1 - Icon', 'name' => 'about_approach_feature_1_icon', 'type' => 'select', 'choices' => array('sprout' => 'Sprout', 'shield' => 'Shield', 'leaf' => 'Leaf', 'heart' => 'Heart', 'microscope' => 'Microscope', 'droplet' => 'Droplet', 'trending-up' => 'Trending Up'), 'default_value' => 'microscope', 'wrapper' => array('width' => '25')),
+            array('key' => 'field_about_approach_feature_1_label', 'label' => 'Feature 1 - Label', 'name' => 'about_approach_feature_1_label', 'type' => 'text', 'placeholder' => 'Bacillus Bacteria', 'wrapper' => array('width' => '25')),
+            // Approach Feature 2
+            array('key' => 'field_about_approach_feature_2_icon', 'label' => 'Feature 2 - Icon', 'name' => 'about_approach_feature_2_icon', 'type' => 'select', 'choices' => array('sprout' => 'Sprout', 'shield' => 'Shield', 'leaf' => 'Leaf', 'heart' => 'Heart', 'microscope' => 'Microscope', 'droplet' => 'Droplet', 'trending-up' => 'Trending Up'), 'default_value' => 'droplet', 'wrapper' => array('width' => '25')),
+            array('key' => 'field_about_approach_feature_2_label', 'label' => 'Feature 2 - Label', 'name' => 'about_approach_feature_2_label', 'type' => 'text', 'placeholder' => 'Targeted Supplements', 'wrapper' => array('width' => '25')),
+            // Approach Feature 3
+            array('key' => 'field_about_approach_feature_3_icon', 'label' => 'Feature 3 - Icon', 'name' => 'about_approach_feature_3_icon', 'type' => 'select', 'choices' => array('sprout' => 'Sprout', 'shield' => 'Shield', 'leaf' => 'Leaf', 'heart' => 'Heart', 'microscope' => 'Microscope', 'droplet' => 'Droplet', 'trending-up' => 'Trending Up'), 'default_value' => 'shield', 'wrapper' => array('width' => '25')),
+            array('key' => 'field_about_approach_feature_3_label', 'label' => 'Feature 3 - Label', 'name' => 'about_approach_feature_3_label', 'type' => 'text', 'placeholder' => 'Certified Organic', 'wrapper' => array('width' => '25')),
+            // Approach Feature 4
+            array('key' => 'field_about_approach_feature_4_icon', 'label' => 'Feature 4 - Icon', 'name' => 'about_approach_feature_4_icon', 'type' => 'select', 'choices' => array('sprout' => 'Sprout', 'shield' => 'Shield', 'leaf' => 'Leaf', 'heart' => 'Heart', 'microscope' => 'Microscope', 'droplet' => 'Droplet', 'trending-up' => 'Trending Up'), 'default_value' => 'trending-up', 'wrapper' => array('width' => '25')),
+            array('key' => 'field_about_approach_feature_4_label', 'label' => 'Feature 4 - Label', 'name' => 'about_approach_feature_4_label', 'type' => 'text', 'placeholder' => 'Proven Results', 'wrapper' => array('width' => '25')),
+
+            // --- Timeline Section ---
+            array('key' => 'field_about_timeline_tab', 'label' => 'Timeline', 'type' => 'tab'),
+            array('key' => 'field_about_timeline_title', 'label' => 'Timeline Title', 'name' => 'about_timeline_title', 'type' => 'text', 'placeholder' => 'A Decade of Soil Science'),
+            array('key' => 'field_about_timeline_subtitle', 'label' => 'Timeline Subtitle', 'name' => 'about_timeline_subtitle', 'type' => 'text'),
+            // Timeline Item 1
+            array('key' => 'field_about_timeline_1_year', 'label' => 'Item 1 - Year', 'name' => 'about_timeline_1_year', 'type' => 'text', 'placeholder' => '2014', 'wrapper' => array('width' => '15')),
+            array('key' => 'field_about_timeline_1_title', 'label' => 'Item 1 - Title', 'name' => 'about_timeline_1_title', 'type' => 'text', 'placeholder' => 'The Beginning', 'wrapper' => array('width' => '35')),
+            array('key' => 'field_about_timeline_1_text', 'label' => 'Item 1 - Text', 'name' => 'about_timeline_1_text', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array('width' => '50')),
+            // Timeline Item 2
+            array('key' => 'field_about_timeline_2_year', 'label' => 'Item 2 - Year', 'name' => 'about_timeline_2_year', 'type' => 'text', 'placeholder' => '2018', 'wrapper' => array('width' => '15')),
+            array('key' => 'field_about_timeline_2_title', 'label' => 'Item 2 - Title', 'name' => 'about_timeline_2_title', 'type' => 'text', 'placeholder' => 'Proven on Farms', 'wrapper' => array('width' => '35')),
+            array('key' => 'field_about_timeline_2_text', 'label' => 'Item 2 - Text', 'name' => 'about_timeline_2_text', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array('width' => '50')),
+            // Timeline Item 3
+            array('key' => 'field_about_timeline_3_year', 'label' => 'Item 3 - Year', 'name' => 'about_timeline_3_year', 'type' => 'text', 'placeholder' => '2022', 'wrapper' => array('width' => '15')),
+            array('key' => 'field_about_timeline_3_title', 'label' => 'Item 3 - Title', 'name' => 'about_timeline_3_title', 'type' => 'text', 'placeholder' => 'Certified Organic', 'wrapper' => array('width' => '35')),
+            array('key' => 'field_about_timeline_3_text', 'label' => 'Item 3 - Text', 'name' => 'about_timeline_3_text', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array('width' => '50')),
+            // Timeline Item 4
+            array('key' => 'field_about_timeline_4_year', 'label' => 'Item 4 - Year', 'name' => 'about_timeline_4_year', 'type' => 'text', 'placeholder' => 'Now', 'wrapper' => array('width' => '15')),
+            array('key' => 'field_about_timeline_4_title', 'label' => 'Item 4 - Title', 'name' => 'about_timeline_4_title', 'type' => 'text', 'placeholder' => 'The Decade of Soil', 'wrapper' => array('width' => '35')),
+            array('key' => 'field_about_timeline_4_text', 'label' => 'Item 4 - Text', 'name' => 'about_timeline_4_text', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array('width' => '50')),
+
+            // --- Results Section ---
+            array('key' => 'field_about_results_tab', 'label' => 'Results', 'type' => 'tab'),
+            array('key' => 'field_about_results_title', 'label' => 'Results Title', 'name' => 'about_results_title', 'type' => 'text', 'placeholder' => 'Real Results From Real Farms'),
+            array('key' => 'field_about_results_subtitle', 'label' => 'Results Subtitle', 'name' => 'about_results_subtitle', 'type' => 'text'),
+            // Result Card 1
+            array('key' => 'field_about_result_1_icon', 'label' => 'Result 1 - Icon', 'name' => 'about_result_1_icon', 'type' => 'select', 'choices' => array('sprout' => 'Sprout', 'shield' => 'Shield', 'leaf' => 'Leaf', 'heart' => 'Heart', 'microscope' => 'Microscope', 'droplet' => 'Droplet', 'trending-up' => 'Trending Up'), 'default_value' => 'trending-up', 'wrapper' => array('width' => '15')),
+            array('key' => 'field_about_result_1_stat', 'label' => 'Result 1 - Stat', 'name' => 'about_result_1_stat', 'type' => 'text', 'placeholder' => '$300k', 'wrapper' => array('width' => '15')),
+            array('key' => 'field_about_result_1_title', 'label' => 'Result 1 - Title', 'name' => 'about_result_1_title', 'type' => 'text', 'placeholder' => 'Additional Value', 'wrapper' => array('width' => '30')),
+            array('key' => 'field_about_result_1_text', 'label' => 'Result 1 - Text', 'name' => 'about_result_1_text', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array('width' => '40')),
+            array('key' => 'field_about_result_1_location', 'label' => 'Result 1 - Location', 'name' => 'about_result_1_location', 'type' => 'text', 'placeholder' => 'Potato Farming, Tasmania'),
+            // Result Card 2
+            array('key' => 'field_about_result_2_icon', 'label' => 'Result 2 - Icon', 'name' => 'about_result_2_icon', 'type' => 'select', 'choices' => array('sprout' => 'Sprout', 'shield' => 'Shield', 'leaf' => 'Leaf', 'heart' => 'Heart', 'microscope' => 'Microscope', 'droplet' => 'Droplet', 'trending-up' => 'Trending Up'), 'default_value' => 'sprout', 'wrapper' => array('width' => '15')),
+            array('key' => 'field_about_result_2_stat', 'label' => 'Result 2 - Stat', 'name' => 'about_result_2_stat', 'type' => 'text', 'placeholder' => '2x', 'wrapper' => array('width' => '15')),
+            array('key' => 'field_about_result_2_title', 'label' => 'Result 2 - Title', 'name' => 'about_result_2_title', 'type' => 'text', 'placeholder' => 'Silage Output Doubled', 'wrapper' => array('width' => '30')),
+            array('key' => 'field_about_result_2_text', 'label' => 'Result 2 - Text', 'name' => 'about_result_2_text', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array('width' => '40')),
+            array('key' => 'field_about_result_2_location', 'label' => 'Result 2 - Location', 'name' => 'about_result_2_location', 'type' => 'text'),
+            // Result Card 3
+            array('key' => 'field_about_result_3_icon', 'label' => 'Result 3 - Icon', 'name' => 'about_result_3_icon', 'type' => 'select', 'choices' => array('sprout' => 'Sprout', 'shield' => 'Shield', 'leaf' => 'Leaf', 'heart' => 'Heart', 'microscope' => 'Microscope', 'droplet' => 'Droplet', 'trending-up' => 'Trending Up'), 'default_value' => 'leaf', 'wrapper' => array('width' => '15')),
+            array('key' => 'field_about_result_3_stat', 'label' => 'Result 3 - Stat', 'name' => 'about_result_3_stat', 'type' => 'text', 'placeholder' => 'Since 2015', 'wrapper' => array('width' => '15')),
+            array('key' => 'field_about_result_3_title', 'label' => 'Result 3 - Title', 'name' => 'about_result_3_title', 'type' => 'text', 'placeholder' => 'Pastures Never Looked Better', 'wrapper' => array('width' => '30')),
+            array('key' => 'field_about_result_3_text', 'label' => 'Result 3 - Text', 'name' => 'about_result_3_text', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array('width' => '40')),
+            array('key' => 'field_about_result_3_location', 'label' => 'Result 3 - Location', 'name' => 'about_result_3_location', 'type' => 'text'),
+
+            // --- Values Section ---
+            array('key' => 'field_about_values_tab', 'label' => 'Values', 'type' => 'tab'),
+            array('key' => 'field_about_values_title', 'label' => 'Values Title', 'name' => 'about_values_title', 'type' => 'text', 'placeholder' => 'What Drives Us'),
+            array('key' => 'field_about_values_subtitle', 'label' => 'Values Subtitle', 'name' => 'about_values_subtitle', 'type' => 'text'),
+            // Value Card 1
+            array('key' => 'field_about_value_1_icon', 'label' => 'Value 1 - Icon', 'name' => 'about_value_1_icon', 'type' => 'select', 'choices' => array('sprout' => 'Sprout', 'shield' => 'Shield', 'leaf' => 'Leaf', 'heart' => 'Heart', 'microscope' => 'Microscope', 'droplet' => 'Droplet', 'trending-up' => 'Trending Up'), 'default_value' => 'heart', 'wrapper' => array('width' => '25')),
+            array('key' => 'field_about_value_1_title', 'label' => 'Value 1 - Title', 'name' => 'about_value_1_title', 'type' => 'text', 'placeholder' => 'Family First', 'wrapper' => array('width' => '25')),
+            array('key' => 'field_about_value_1_text', 'label' => 'Value 1 - Text', 'name' => 'about_value_1_text', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array('width' => '50')),
+            // Value Card 2
+            array('key' => 'field_about_value_2_icon', 'label' => 'Value 2 - Icon', 'name' => 'about_value_2_icon', 'type' => 'select', 'choices' => array('sprout' => 'Sprout', 'shield' => 'Shield', 'leaf' => 'Leaf', 'heart' => 'Heart', 'microscope' => 'Microscope', 'droplet' => 'Droplet', 'trending-up' => 'Trending Up'), 'default_value' => 'microscope', 'wrapper' => array('width' => '25')),
+            array('key' => 'field_about_value_2_title', 'label' => 'Value 2 - Title', 'name' => 'about_value_2_title', 'type' => 'text', 'placeholder' => 'Science-Backed', 'wrapper' => array('width' => '25')),
+            array('key' => 'field_about_value_2_text', 'label' => 'Value 2 - Text', 'name' => 'about_value_2_text', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array('width' => '50')),
+            // Value Card 3
+            array('key' => 'field_about_value_3_icon', 'label' => 'Value 3 - Icon', 'name' => 'about_value_3_icon', 'type' => 'select', 'choices' => array('sprout' => 'Sprout', 'shield' => 'Shield', 'leaf' => 'Leaf', 'heart' => 'Heart', 'microscope' => 'Microscope', 'droplet' => 'Droplet', 'trending-up' => 'Trending Up'), 'default_value' => 'sprout', 'wrapper' => array('width' => '25')),
+            array('key' => 'field_about_value_3_title', 'label' => 'Value 3 - Title', 'name' => 'about_value_3_title', 'type' => 'text', 'placeholder' => 'Regenerative', 'wrapper' => array('width' => '25')),
+            array('key' => 'field_about_value_3_text', 'label' => 'Value 3 - Text', 'name' => 'about_value_3_text', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array('width' => '50')),
+            // Value Card 4
+            array('key' => 'field_about_value_4_icon', 'label' => 'Value 4 - Icon', 'name' => 'about_value_4_icon', 'type' => 'select', 'choices' => array('sprout' => 'Sprout', 'shield' => 'Shield', 'leaf' => 'Leaf', 'heart' => 'Heart', 'microscope' => 'Microscope', 'droplet' => 'Droplet', 'trending-up' => 'Trending Up'), 'default_value' => 'trending-up', 'wrapper' => array('width' => '25')),
+            array('key' => 'field_about_value_4_title', 'label' => 'Value 4 - Title', 'name' => 'about_value_4_title', 'type' => 'text', 'placeholder' => 'Results-Driven', 'wrapper' => array('width' => '25')),
+            array('key' => 'field_about_value_4_text', 'label' => 'Value 4 - Text', 'name' => 'about_value_4_text', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array('width' => '50')),
+
+            // --- CTA Section ---
+            array('key' => 'field_about_cta_tab', 'label' => 'CTA', 'type' => 'tab'),
+            array('key' => 'field_about_cta_title', 'label' => 'CTA Title', 'name' => 'about_cta_title', 'type' => 'text', 'placeholder' => 'Start Your Soil Journey'),
+            array('key' => 'field_about_cta_description', 'label' => 'CTA Description', 'name' => 'about_cta_description', 'type' => 'textarea', 'rows' => 2),
+            array('key' => 'field_about_cta_button_1_text', 'label' => 'Button 1 Text', 'name' => 'about_cta_button_1_text', 'type' => 'text', 'placeholder' => 'Explore Our Products', 'wrapper' => array('width' => '25')),
+            array('key' => 'field_about_cta_button_1_link', 'label' => 'Button 1 Link', 'name' => 'about_cta_button_1_link', 'type' => 'url', 'wrapper' => array('width' => '25')),
+            array('key' => 'field_about_cta_button_2_text', 'label' => 'Button 2 Text', 'name' => 'about_cta_button_2_text', 'type' => 'text', 'placeholder' => 'Get In Touch', 'wrapper' => array('width' => '25')),
+            array('key' => 'field_about_cta_button_2_link', 'label' => 'Button 2 Link', 'name' => 'about_cta_button_2_link', 'type' => 'url', 'wrapper' => array('width' => '25')),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-templates/template-about.php',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+    ));
+
+    /**
+     * Contact Page Content Field Group
+     */
+    acf_add_local_field_group(array(
+        'key' => 'group_contact_content',
+        'title' => 'Contact Page Content',
+        'fields' => array(
+
+            // --- Page Header ---
+            array('key' => 'field_contact_header_tab', 'label' => 'Page Header', 'type' => 'tab'),
+            array('key' => 'field_contact_title', 'label' => 'Page Title', 'name' => 'contact_title', 'type' => 'text', 'placeholder' => 'Contact Us'),
+            array('key' => 'field_contact_subtitle', 'label' => 'Page Subtitle', 'name' => 'contact_subtitle', 'type' => 'text'),
+
+            // --- Contact Info ---
+            array('key' => 'field_contact_info_tab', 'label' => 'Contact Info', 'type' => 'tab'),
+            array('key' => 'field_contact_email', 'label' => 'Email Address', 'name' => 'contact_email', 'type' => 'email', 'placeholder' => 'info@revertagri.com.au', 'instructions' => 'Business email address'),
+            array('key' => 'field_contact_phone', 'label' => 'Phone Number', 'name' => 'contact_phone', 'type' => 'text', 'placeholder' => '+61 2 3456 7890'),
+            array('key' => 'field_contact_location', 'label' => 'Location', 'name' => 'contact_location', 'type' => 'text', 'placeholder' => 'Australia'),
+
+            // --- Form Settings ---
+            array('key' => 'field_contact_form_tab', 'label' => 'Form Settings', 'type' => 'tab'),
+            array('key' => 'field_contact_form_title', 'label' => 'Form Title', 'name' => 'contact_form_title', 'type' => 'text', 'placeholder' => 'Send Us A Message'),
+            array('key' => 'field_contact_form_subtitle', 'label' => 'Form Subtitle', 'name' => 'contact_form_subtitle', 'type' => 'text', 'placeholder' => 'Fill out the form below and we\'ll get back to you within 24 hours'),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-templates/template-contact.php',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+    ));
+
+    /**
+     * Products Overview Content Field Group
+     */
+    acf_add_local_field_group(array(
+        'key' => 'group_products_content',
+        'title' => 'Products Overview Content',
+        'fields' => array(
+
+            // --- Page Header ---
+            array('key' => 'field_products_header_tab', 'label' => 'Page Header', 'type' => 'tab'),
+            array('key' => 'field_products_title', 'label' => 'Page Title', 'name' => 'products_title', 'type' => 'text', 'placeholder' => 'Our Products'),
+            array('key' => 'field_products_subtitle', 'label' => 'Page Subtitle', 'name' => 'products_subtitle', 'type' => 'textarea', 'rows' => 2),
+
+            // --- Featured Section ---
+            array('key' => 'field_products_featured_tab', 'label' => 'Featured Section', 'type' => 'tab'),
+            array('key' => 'field_products_featured_title', 'label' => 'Featured Title', 'name' => 'products_featured_title', 'type' => 'text', 'placeholder' => 'Featured Products'),
+            array('key' => 'field_products_featured_subtitle', 'label' => 'Featured Subtitle', 'name' => 'products_featured_subtitle', 'type' => 'text'),
+
+            // --- CTA Section ---
+            array('key' => 'field_products_cta_tab', 'label' => 'CTA', 'type' => 'tab'),
+            array('key' => 'field_products_cta_title', 'label' => 'CTA Title', 'name' => 'products_cta_title', 'type' => 'text', 'placeholder' => 'Need Help Choosing?'),
+            array('key' => 'field_products_cta_description', 'label' => 'CTA Description', 'name' => 'products_cta_description', 'type' => 'textarea', 'rows' => 2),
+            array('key' => 'field_products_cta_button_1_text', 'label' => 'Button 1 Text', 'name' => 'products_cta_button_1_text', 'type' => 'text', 'placeholder' => 'Contact Us', 'wrapper' => array('width' => '25')),
+            array('key' => 'field_products_cta_button_1_link', 'label' => 'Button 1 Link', 'name' => 'products_cta_button_1_link', 'type' => 'url', 'wrapper' => array('width' => '25')),
+            array('key' => 'field_products_cta_button_2_text', 'label' => 'Button 2 Text', 'name' => 'products_cta_button_2_text', 'type' => 'text', 'placeholder' => 'Find A Distributor', 'wrapper' => array('width' => '25')),
+            array('key' => 'field_products_cta_button_2_link', 'label' => 'Button 2 Link', 'name' => 'products_cta_button_2_link', 'type' => 'url', 'wrapper' => array('width' => '25')),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-templates/template-products-overview.php',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+    ));
+
+    /**
+     * Distributor Page Content Field Group
+     */
+    acf_add_local_field_group(array(
+        'key' => 'group_distributor_content',
+        'title' => 'Distributor Page Content',
+        'fields' => array(
+
+            // --- Page Header ---
+            array('key' => 'field_distributor_header_tab', 'label' => 'Page Header', 'type' => 'tab'),
+            array('key' => 'field_distributor_title', 'label' => 'Page Title', 'name' => 'distributor_title', 'type' => 'text', 'placeholder' => 'Find A Distributor'),
+            array('key' => 'field_distributor_subtitle', 'label' => 'Page Subtitle', 'name' => 'distributor_subtitle', 'type' => 'text'),
+
+            // --- Search UI ---
+            array('key' => 'field_distributor_search_tab', 'label' => 'Search UI', 'type' => 'tab'),
+            array('key' => 'field_distributor_search_title', 'label' => 'Search Title', 'name' => 'distributor_search_title', 'type' => 'text', 'placeholder' => 'Search for Distributors'),
+            array('key' => 'field_distributor_search_subtitle', 'label' => 'Search Subtitle', 'name' => 'distributor_search_subtitle', 'type' => 'text', 'placeholder' => 'Filter by region to find distributors near you'),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-templates/template-distributor.php',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+    ));
+
 }

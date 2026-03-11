@@ -11,13 +11,24 @@
 get_header();
 ?>
 
+<?php $products_title = get_field('products_title') ?: 'Our Products'; ?>
+<?php $products_subtitle = get_field('products_subtitle') ?: 'Explore our range of innovative agricultural solutions designed for sustainable farming'; ?>
+<?php $products_featured_title = get_field('products_featured_title') ?: 'Featured Products'; ?>
+<?php $products_featured_subtitle = get_field('products_featured_subtitle') ?: 'Our most popular agricultural solutions'; ?>
+<?php $products_cta_title = get_field('products_cta_title') ?: 'Need Help Choosing?'; ?>
+<?php $products_cta_description = get_field('products_cta_description') ?: 'Our experts are here to help you find the perfect solution for your agricultural needs'; ?>
+<?php $products_cta_button_1_text = get_field('products_cta_button_1_text') ?: 'Contact Us'; ?>
+<?php $products_cta_button_1_link = get_field('products_cta_button_1_link') ?: home_url('/contact'); ?>
+<?php $products_cta_button_2_text = get_field('products_cta_button_2_text') ?: 'Find A Distributor'; ?>
+<?php $products_cta_button_2_link = get_field('products_cta_button_2_link') ?: home_url('/distributor'); ?>
+
 <!-- Page Hero -->
 <section class="py-16 bg-muted">
     <div class="container">
         <div class="max-w-3xl mx-auto text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Our Products</h1>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4"><?php echo esc_html($products_title); ?></h1>
             <p class="text-xl text-muted-foreground">
-                Explore our range of innovative agricultural solutions designed for sustainable farming
+                <?php echo esc_html($products_subtitle); ?>
             </p>
         </div>
     </div>
@@ -114,8 +125,8 @@ get_header();
 <section class="py-16 bg-muted">
     <div class="container">
         <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold mb-4">Featured Products</h2>
-            <p class="text-muted-foreground">Our most popular agricultural solutions</p>
+            <h2 class="text-3xl font-bold mb-4"><?php echo esc_html($products_featured_title); ?></h2>
+            <p class="text-muted-foreground"><?php echo esc_html($products_featured_subtitle); ?></p>
         </div>
 
         <?php
@@ -160,19 +171,19 @@ get_header();
 <!-- CTA Section -->
 <section class="py-16 bg-primary text-primary-foreground">
     <div class="container text-center">
-        <h2 class="text-3xl font-bold mb-4">Need Help Choosing?</h2>
+        <h2 class="text-3xl font-bold mb-4"><?php echo esc_html($products_cta_title); ?></h2>
         <p class="text-lg mb-8 max-w-2xl mx-auto opacity-90">
-            Our experts are here to help you find the perfect solution for your agricultural needs
+            <?php echo esc_html($products_cta_description); ?>
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="<?php echo esc_url(home_url('/contact')); ?>"
+            <a href="<?php echo esc_url($products_cta_button_1_link); ?>"
                class="inline-flex items-center justify-center h-11 px-8 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80">
-                Contact Us
+                <?php echo esc_html($products_cta_button_1_text); ?>
             </a>
-            <a href="<?php echo esc_url(home_url('/distributor')); ?>"
+            <a href="<?php echo esc_url($products_cta_button_2_link); ?>"
                class="inline-flex items-center justify-center h-11 px-8 rounded-md border border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
                 <?php echo revert_get_icon('map-pin', 'mr-2 h-4 w-4'); ?>
-                Find A Distributor
+                <?php echo esc_html($products_cta_button_2_text); ?>
             </a>
         </div>
     </div>
