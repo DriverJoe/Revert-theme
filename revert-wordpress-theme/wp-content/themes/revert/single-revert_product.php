@@ -12,6 +12,8 @@ get_header();
 <?php while (have_posts()) : the_post();
     $product_icon = get_field('product_icon');
     $product_description = get_field('product_description');
+    $product_tagline = get_field('product_tagline');
+    $product_form = get_field('product_form');
 
     // Build features array from individual fields
     $features = array();
@@ -57,17 +59,29 @@ get_header();
                 <div class="flex flex-col justify-center">
                     <h1 class="text-4xl md:text-5xl font-bold mb-4"><?php the_title(); ?></h1>
 
-                    <!-- Categories -->
+                    <!-- Product Tagline -->
+                    <?php if ($product_tagline) : ?>
+                        <p class="text-lg text-muted-foreground mb-4"><?php echo esc_html($product_tagline); ?></p>
+                    <?php endif; ?>
+
+                    <!-- Categories & Product Form -->
                     <?php
                     $categories = get_the_terms(get_the_ID(), 'product_category');
-                    if ($categories && !is_wp_error($categories)) :
+                    if (($categories && !is_wp_error($categories)) || $product_form) :
                     ?>
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <?php foreach ($categories as $category) : ?>
-                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm bg-accent/10 text-accent">
-                                    <?php echo esc_html($category->name); ?>
+                            <?php if ($categories && !is_wp_error($categories)) : ?>
+                                <?php foreach ($categories as $category) : ?>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm bg-accent/10 text-accent">
+                                        <?php echo esc_html($category->name); ?>
+                                    </span>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                            <?php if ($product_form) : ?>
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm bg-primary/10 text-primary font-medium">
+                                    <?php echo esc_html($product_form); ?>
                                 </span>
-                            <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
                     <?php endif; ?>
 
@@ -110,6 +124,39 @@ get_header();
                 </div>
             </div>
 
+            <!-- Product Gallery -->
+            <?php
+            $gallery_images = array();
+            for ($g = 1; $g <= 4; $g++) {
+                $gallery_img = get_field('product_gallery_' . $g);
+                if ($gallery_img) {
+                    $gallery_images[] = $gallery_img;
+                }
+            }
+            if (!empty($gallery_images)) :
+            ?>
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold mb-6">Product Gallery</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <?php foreach ($gallery_images as $gallery_img) : ?>
+                            <div class="bg-muted rounded-lg overflow-hidden aspect-square">
+                                <?php if (is_array($gallery_img) && !empty($gallery_img['url'])) : ?>
+                                    <img src="<?php echo esc_url($gallery_img['url']); ?>"
+                                         alt="<?php echo esc_attr($gallery_img['alt'] ?? get_the_title() . ' gallery image'); ?>"
+                                         class="w-full h-full object-cover" />
+                                <?php elseif (is_numeric($gallery_img)) : ?>
+                                    <?php echo wp_get_attachment_image($gallery_img, 'medium_large', false, array('class' => 'w-full h-full object-cover')); ?>
+                                <?php else : ?>
+                                    <img src="<?php echo esc_url($gallery_img); ?>"
+                                         alt="<?php echo esc_attr(get_the_title() . ' gallery image'); ?>"
+                                         class="w-full h-full object-cover" />
+                                <?php endif; ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+
             <!-- Product Features -->
             <?php if ($features && is_array($features)) : ?>
                 <div class="bg-card rounded-lg border p-8 mb-12">
@@ -124,6 +171,34 @@ get_header();
                                     <h3 class="font-bold mb-2"><?php echo esc_html($feature['feature_title']); ?></h3>
                                     <p class="text-sm text-muted-foreground"><?php echo esc_html($feature['feature_description']); ?></p>
                                 </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <!-- Product Specifications -->
+            <?php
+            $specs = array();
+            for ($s = 1; $s <= 4; $s++) {
+                $spec_name = get_field('product_spec_' . $s . '_name');
+                $spec_value = get_field('product_spec_' . $s . '_value');
+                if ($spec_name) {
+                    $specs[] = array(
+                        'name' => $spec_name,
+                        'value' => $spec_value ?: '—',
+                    );
+                }
+            }
+            if (!empty($specs)) :
+            ?>
+                <div class="bg-card rounded-lg border p-8 mb-12">
+                    <h2 class="text-3xl font-bold mb-6">Specifications</h2>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <?php foreach ($specs as $spec) : ?>
+                            <div class="flex justify-between items-center py-3 px-4 bg-muted rounded-lg">
+                                <span class="text-sm font-semibold text-muted-foreground"><?php echo esc_html($spec['name']); ?></span>
+                                <span class="text-sm font-medium"><?php echo esc_html($spec['value']); ?></span>
                             </div>
                         <?php endforeach; ?>
                     </div>

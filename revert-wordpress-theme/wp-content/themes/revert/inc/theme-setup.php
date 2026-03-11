@@ -32,8 +32,9 @@ function revert_theme_setup() {
 
     // Register navigation menus
     register_nav_menus(array(
-        'primary' => __('Primary Menu', 'revert'),
-        'footer'  => __('Footer Menu', 'revert'),
+        'primary'          => __('Primary Menu', 'revert'),
+        'footer'           => __('Footer Menu', 'revert'),
+        'footer-products'  => __('Footer Products Menu', 'revert'),
     ));
 
     // Add image sizes

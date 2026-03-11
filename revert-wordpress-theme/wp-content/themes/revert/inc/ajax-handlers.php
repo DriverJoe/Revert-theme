@@ -191,10 +191,31 @@ function revert_newsletter_subscribe() {
         wp_send_json_error(array('message' => 'Please enter a valid email address.'));
     }
 
-    // Here you can integrate with your newsletter service (Brevo, Mailchimp, etc.)
-    // For now, we'll just send a success message
+    // Get existing subscribers from options
+    $subscribers = get_option('revert_newsletter_subscribers', array());
 
-    wp_send_json_success(array('message' => 'Thank you for subscribing to our newsletter!'));
+    // Check if already subscribed
+    if (in_array($email, $subscribers, true)) {
+        wp_send_json_error(array('message' => 'This email is already subscribed to our newsletter.'));
+    }
+
+    // Store new subscriber
+    $subscribers[] = $email;
+    $updated = update_option('revert_newsletter_subscribers', $subscribers);
+
+    if ($updated) {
+        /**
+         * Fires after a new newsletter subscriber is saved.
+         *
+         * @since 1.0.0
+         * @param string $email The subscriber's email address.
+         */
+        do_action('revert_newsletter_subscribed', $email);
+
+        wp_send_json_success(array('message' => 'Thank you for subscribing to our newsletter!'));
+    } else {
+        wp_send_json_error(array('message' => 'Sorry, there was an error processing your subscription. Please try again later.'));
+    }
 }
 add_action('wp_ajax_newsletter_subscribe', 'revert_newsletter_subscribe');
 add_action('wp_ajax_nopriv_newsletter_subscribe', 'revert_newsletter_subscribe');

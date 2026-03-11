@@ -27,22 +27,48 @@
             <!-- Quick Links -->
             <div>
                 <h4 class="font-semibold mb-4">Quick Links</h4>
-                <ul class="space-y-2 text-sm opacity-90">
-                    <li><a href="<?php echo esc_url(home_url('/about')); ?>" class="hover:opacity-100 transition-opacity">About Us</a></li>
-                    <li><a href="<?php echo esc_url(home_url('/distributor')); ?>" class="hover:opacity-100 transition-opacity">Find A Distributor</a></li>
-                    <li><a href="<?php echo esc_url(home_url('/contact')); ?>" class="hover:opacity-100 transition-opacity">Contact</a></li>
-                </ul>
+                <?php if (has_nav_menu('footer')) : ?>
+                    <?php wp_nav_menu(array(
+                        'theme_location'  => 'footer',
+                        'container'       => false,
+                        'menu_class'      => 'space-y-2 text-sm opacity-90 list-none m-0 p-0',
+                        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                        'depth'           => 1,
+                        'link_before'     => '<span class="hover:opacity-100 transition-opacity">',
+                        'link_after'      => '</span>',
+                        'fallback_cb'     => false,
+                    )); ?>
+                <?php else : ?>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li><a href="<?php echo esc_url(home_url('/about')); ?>" class="hover:opacity-100 transition-opacity">About Us</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/distributor')); ?>" class="hover:opacity-100 transition-opacity">Find A Distributor</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/contact')); ?>" class="hover:opacity-100 transition-opacity">Contact</a></li>
+                    </ul>
+                <?php endif; ?>
             </div>
 
             <!-- Products -->
             <div>
                 <h4 class="font-semibold mb-4">Products</h4>
-                <ul class="space-y-2 text-sm opacity-90">
-                    <li><a href="<?php echo esc_url(home_url('/products/crop-solutions')); ?>" class="hover:opacity-100 transition-opacity">Crop Solutions</a></li>
-                    <li><a href="<?php echo esc_url(home_url('/products/horticulture')); ?>" class="hover:opacity-100 transition-opacity">Horticulture</a></li>
-                    <li><a href="<?php echo esc_url(home_url('/products/livestock')); ?>" class="hover:opacity-100 transition-opacity">Livestock</a></li>
-                    <li><a href="<?php echo esc_url(home_url('/products/pest-management')); ?>" class="hover:opacity-100 transition-opacity">Pest Management</a></li>
-                </ul>
+                <?php if (has_nav_menu('footer-products')) : ?>
+                    <?php wp_nav_menu(array(
+                        'theme_location'  => 'footer-products',
+                        'container'       => false,
+                        'menu_class'      => 'space-y-2 text-sm opacity-90 list-none m-0 p-0',
+                        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                        'depth'           => 1,
+                        'link_before'     => '<span class="hover:opacity-100 transition-opacity">',
+                        'link_after'      => '</span>',
+                        'fallback_cb'     => false,
+                    )); ?>
+                <?php else : ?>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li><a href="<?php echo esc_url(home_url('/products/crop-solutions')); ?>" class="hover:opacity-100 transition-opacity">Crop Solutions</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/products/horticulture')); ?>" class="hover:opacity-100 transition-opacity">Horticulture</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/products/livestock')); ?>" class="hover:opacity-100 transition-opacity">Livestock</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/products/pest-management')); ?>" class="hover:opacity-100 transition-opacity">Pest Management</a></li>
+                    </ul>
+                <?php endif; ?>
             </div>
 
             <!-- Newsletter -->
