@@ -106,59 +106,48 @@ $cta_btn_2_text = get_field('cta_button_2_text') ?: 'Find A Distributor';
 $cta_btn_2_link = get_field('cta_button_2_link') ?: home_url('/distributor');
 ?>
 
-<!-- Hero Section -->
-<section class="relative h-[600px] flex items-center justify-center overflow-hidden">
+<!-- Hero + Solutions — single section, Neutrog-inspired -->
+<section class="relative bg-primary overflow-hidden">
+    <!-- Background image -->
     <div class="absolute inset-0 bg-cover bg-center"
          style="background-image: url('<?php echo esc_url($hero_image); ?>')">
-        <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/60"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/70 to-primary/95"></div>
     </div>
-    <div class="container relative z-10 text-center text-primary-foreground">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in">
-            <?php echo esc_html($hero_title); ?>
-        </h1>
-        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-95">
-            <?php echo esc_html($hero_subtitle); ?>
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="<?php echo esc_url($hero_btn_1_link); ?>"
-               class="inline-flex items-center justify-center h-11 px-8 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors">
-                <?php echo esc_html($hero_btn_1_text); ?>
-                <?php echo revert_get_icon('arrow-right', 'ml-2 h-5 w-5'); ?>
-            </a>
-            <a href="<?php echo esc_url($hero_btn_2_link); ?>"
-               class="inline-flex items-center justify-center h-11 px-8 rounded-md border border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary transition-colors">
-                <?php echo esc_html($hero_btn_2_text); ?>
-            </a>
-        </div>
-    </div>
-</section>
 
-<!-- Products Overview -->
-<section class="py-20 bg-background">
-    <div class="container">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold mb-4"><?php echo esc_html($solutions_title); ?></h2>
-            <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
-                <?php echo esc_html($solutions_subtitle); ?>
+    <div class="container relative z-10">
+        <!-- Hero text -->
+        <div class="text-center text-primary-foreground pt-20 pb-12 md:pt-28 md:pb-16">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 max-w-4xl mx-auto leading-tight">
+                <?php echo esc_html($hero_title); ?>
+            </h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">
+                <?php echo esc_html($hero_subtitle); ?>
             </p>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="<?php echo esc_url($hero_btn_1_link); ?>"
+                   class="inline-flex items-center justify-center h-11 px-8 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors font-medium">
+                    <?php echo esc_html($hero_btn_1_text); ?>
+                    <?php echo revert_get_icon('arrow-right', 'ml-2 h-4 w-4'); ?>
+                </a>
+                <a href="<?php echo esc_url($hero_btn_2_link); ?>"
+                   class="inline-flex items-center justify-center h-11 px-8 rounded-md border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary transition-colors font-medium">
+                    <?php echo esc_html($hero_btn_2_text); ?>
+                </a>
+            </div>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Solution cards — bottom of hero -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 pb-8">
             <?php foreach ($solutions as $product) : ?>
                 <a href="<?php echo esc_url($product['link']); ?>"
-                   class="group bg-card rounded-lg border shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="aspect-video overflow-hidden rounded-t-lg">
-                        <img src="<?php echo esc_url($product['image']); ?>"
-                             alt="<?php echo esc_attr($product['title']); ?>"
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="flex items-center gap-2 text-xl font-bold mb-2">
-                            <?php echo revert_get_icon($product['icon'], 'h-5 w-5 text-accent'); ?>
+                   class="group bg-white/95 backdrop-blur rounded-lg p-4 md:p-5 hover:bg-white transition-colors shadow-lg">
+                    <div class="flex items-center gap-2.5 mb-1.5">
+                        <?php echo revert_get_icon($product['icon'], 'h-5 w-5 text-accent flex-shrink-0'); ?>
+                        <h3 class="font-bold text-sm md:text-base text-foreground group-hover:text-accent transition-colors">
                             <?php echo esc_html($product['title']); ?>
                         </h3>
-                        <p class="text-muted-foreground"><?php echo esc_html($product['description']); ?></p>
                     </div>
+                    <p class="text-xs md:text-sm text-muted-foreground hidden sm:block"><?php echo esc_html($product['description']); ?></p>
                 </a>
             <?php endforeach; ?>
         </div>
