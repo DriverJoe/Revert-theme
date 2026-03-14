@@ -111,43 +111,43 @@ $cta_btn_2_link = get_field('cta_button_2_link') ?: home_url('/distributor');
     <!-- Background image -->
     <div class="absolute inset-0 bg-cover bg-center"
          style="background-image: url('<?php echo esc_url($hero_image); ?>')">
-        <div class="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/70 to-primary/95"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/50 to-primary/80"></div>
     </div>
 
     <div class="container relative z-10">
-        <!-- Hero text -->
-        <div class="text-center text-primary-foreground pt-24 pb-16 md:pt-32 md:pb-20">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 max-w-4xl mx-auto leading-tight">
+        <!-- Hero text — large and prominent -->
+        <div class="text-center text-primary-foreground pt-28 pb-20 md:pt-40 md:pb-28">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 max-w-4xl mx-auto leading-tight">
                 <?php echo esc_html($hero_title); ?>
             </h1>
-            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90">
                 <?php echo esc_html($hero_subtitle); ?>
             </p>
-            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="<?php echo esc_url($hero_btn_1_link); ?>"
-                   class="inline-flex items-center justify-center h-11 px-8 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors font-medium">
+                   class="inline-flex items-center justify-center h-12 px-10 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors font-medium text-lg">
                     <?php echo esc_html($hero_btn_1_text); ?>
-                    <?php echo revert_get_icon('arrow-right', 'ml-2 h-4 w-4'); ?>
+                    <?php echo revert_get_icon('arrow-right', 'ml-2 h-5 w-5'); ?>
                 </a>
                 <a href="<?php echo esc_url($hero_btn_2_link); ?>"
-                   class="inline-flex items-center justify-center h-11 px-8 rounded-md border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary transition-colors font-medium">
+                   class="inline-flex items-center justify-center h-12 px-10 rounded-md border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary transition-colors font-medium text-lg">
                     <?php echo esc_html($hero_btn_2_text); ?>
                 </a>
             </div>
         </div>
 
-        <!-- Solution cards — bottom of hero -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 pb-8">
+        <!-- Solution bubbles — transparent glass cards like Neutrog -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 pb-10">
             <?php foreach ($solutions as $product) : ?>
                 <a href="<?php echo esc_url($product['link']); ?>"
-                   class="group bg-white/95 backdrop-blur rounded-lg p-4 md:p-5 hover:bg-white transition-colors shadow-lg">
-                    <div class="flex items-center gap-2.5 mb-1.5">
-                        <?php echo revert_get_icon($product['icon'], 'h-5 w-5 text-accent flex-shrink-0'); ?>
-                        <h3 class="font-bold text-sm md:text-base text-foreground group-hover:text-accent transition-colors">
-                            <?php echo esc_html($product['title']); ?>
-                        </h3>
+                   class="group rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm p-6 md:p-8 text-center text-primary-foreground hover:bg-white/20 transition-all duration-300">
+                    <div class="mb-3">
+                        <?php echo revert_get_icon($product['icon'], 'h-10 w-10 mx-auto text-white'); ?>
                     </div>
-                    <p class="text-xs md:text-sm text-muted-foreground hidden sm:block"><?php echo esc_html($product['description']); ?></p>
+                    <h3 class="font-bold text-base md:text-lg mb-1">
+                        <?php echo esc_html($product['title']); ?>
+                    </h3>
+                    <p class="text-xs md:text-sm text-primary-foreground/70 hidden sm:block"><?php echo esc_html($product['description']); ?></p>
                 </a>
             <?php endforeach; ?>
         </div>
