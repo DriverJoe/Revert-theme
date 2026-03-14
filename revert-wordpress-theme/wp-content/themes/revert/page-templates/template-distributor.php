@@ -23,41 +23,28 @@ get_header();
             </p>
         </div>
 
-        <!-- Search Filter -->
-        <div class="max-w-2xl mx-auto mb-12">
-            <div class="bg-card rounded-lg border p-6">
+        <!-- Region Filter -->
+        <div class="max-w-md mx-auto mb-12">
+            <div class="bg-card rounded-lg border p-6 text-center">
                 <h3 class="text-xl font-bold mb-2"><?php echo esc_html($distributor_search_title); ?></h3>
                 <p class="text-muted-foreground mb-4"><?php echo esc_html($distributor_search_subtitle); ?></p>
 
-                <div class="grid md:grid-cols-2 gap-4">
-                    <input type="text"
-                           x-model="searchTerm"
-                           placeholder="Enter your location"
-                           class="w-full h-10 rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring">
-
-                    <select x-model="selectedRegion"
-                            class="w-full h-10 rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring">
-                        <option value="">All Regions</option>
-                        <?php
-                        $regions = get_terms(array(
-                            'taxonomy' => 'reseller_region',
-                            'hide_empty' => false,
-                        ));
-                        if (!is_wp_error($regions) && !empty($regions)) {
-                            foreach ($regions as $region) {
-                                echo '<option value="' . esc_attr($region->slug) . '">' . esc_html($region->name) . '</option>';
-                            }
+                <select x-model="selectedRegion"
+                        @change="searchDistributors()"
+                        class="w-full h-10 rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring">
+                    <option value="">All Regions</option>
+                    <?php
+                    $regions = get_terms(array(
+                        'taxonomy' => 'reseller_region',
+                        'hide_empty' => false,
+                    ));
+                    if (!is_wp_error($regions) && !empty($regions)) {
+                        foreach ($regions as $region) {
+                            echo '<option value="' . esc_attr($region->slug) . '">' . esc_html($region->name) . '</option>';
                         }
-                        ?>
-                    </select>
-                </div>
-
-                <button @click="searchDistributors()"
-                        :disabled="loading"
-                        class="w-full mt-4 h-10 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50">
-                    <span x-show="!loading">Search</span>
-                    <span x-show="loading">Searching...</span>
-                </button>
+                    }
+                    ?>
+                </select>
             </div>
         </div>
 

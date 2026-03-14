@@ -10,7 +10,6 @@
  */
 function distributorLocator() {
     return {
-        searchTerm: '',
         selectedRegion: '',
         loading: false,
 
@@ -19,11 +18,11 @@ function distributorLocator() {
             if (!resultsContainer) return;
 
             this.loading = true;
-            resultsContainer.innerHTML = '<p class="col-span-2 text-center text-muted-foreground py-8">Searching...</p>';
+            resultsContainer.innerHTML = '<p class="col-span-2 text-center text-muted-foreground py-8">Loading distributors...</p>';
 
             const formData = new FormData();
             formData.append('action', 'search_distributors');
-            formData.append('search', this.searchTerm);
+            formData.append('search', '');
             formData.append('region', this.selectedRegion);
             formData.append('nonce', revertAjax.nonce);
 
@@ -48,7 +47,6 @@ function distributorLocator() {
         },
 
         init() {
-            // Load all distributors initially
             this.searchDistributors();
         }
     }
