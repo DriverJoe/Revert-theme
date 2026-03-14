@@ -116,11 +116,11 @@ $cta_btn_2_link = get_field('cta_button_2_link') ?: home_url('/distributor');
 
     <div class="container relative z-10">
         <!-- Hero text -->
-        <div class="text-center text-primary-foreground pt-36 pb-28 md:pt-48 md:pb-36 lg:pt-56 lg:pb-44">
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 max-w-4xl mx-auto leading-tight">
+        <div class="text-center text-primary-foreground pt-40 pb-32 md:pt-56 md:pb-44 lg:pt-64 lg:pb-52">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 max-w-4xl mx-auto leading-tight">
                 <?php echo esc_html($hero_title); ?>
             </h1>
-            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90">
+            <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto opacity-90">
                 <?php echo esc_html($hero_subtitle); ?>
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -136,20 +136,21 @@ $cta_btn_2_link = get_field('cta_button_2_link') ?: home_url('/distributor');
             </div>
         </div>
 
-        <!-- Solution cards — clean solid white -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 pb-12">
+        <!-- Solution cards — rounded bubble style -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 pb-16">
             <?php foreach ($solutions as $product) : ?>
                 <a href="<?php echo esc_url($product['link']); ?>"
-                   class="group bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                   class="group bg-card rounded-2xl border shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
                     <div class="aspect-[4/3] overflow-hidden">
                         <img src="<?php echo esc_url($product['image']); ?>"
                              alt="<?php echo esc_attr($product['title']); ?>"
                              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-4 text-center">
-                        <h3 class="font-bold text-foreground group-hover:text-accent transition-colors">
+                    <div class="p-5 text-center">
+                        <h3 class="font-bold text-lg text-foreground group-hover:text-accent transition-colors">
                             <?php echo esc_html($product['title']); ?>
                         </h3>
+                        <p class="text-sm text-muted-foreground mt-1"><?php echo esc_html($product['description']); ?></p>
                     </div>
                 </a>
             <?php endforeach; ?>
