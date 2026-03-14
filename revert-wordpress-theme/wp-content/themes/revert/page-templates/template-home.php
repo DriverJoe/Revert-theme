@@ -116,7 +116,7 @@ $cta_btn_2_link = get_field('cta_button_2_link') ?: home_url('/distributor');
 
     <div class="container relative z-10">
         <!-- Hero text — large and prominent -->
-        <div class="text-center text-primary-foreground pt-28 pb-20 md:pt-40 md:pb-28">
+        <div class="text-center text-primary-foreground pt-32 pb-24 md:pt-44 md:pb-32 lg:pt-52 lg:pb-36">
             <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 max-w-4xl mx-auto leading-tight">
                 <?php echo esc_html($hero_title); ?>
             </h1>
@@ -136,18 +136,23 @@ $cta_btn_2_link = get_field('cta_button_2_link') ?: home_url('/distributor');
             </div>
         </div>
 
-        <!-- Solution bubbles — transparent glass cards like Neutrog -->
+        <!-- Solution cards with images — Neutrog glass style -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 pb-10">
             <?php foreach ($solutions as $product) : ?>
                 <a href="<?php echo esc_url($product['link']); ?>"
-                   class="group rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm p-6 md:p-8 text-center text-primary-foreground hover:bg-white/20 transition-all duration-300">
-                    <div class="mb-3">
-                        <?php echo revert_get_icon($product['icon'], 'h-10 w-10 mx-auto text-white'); ?>
+                   class="group rounded-xl border border-white/25 bg-white/10 backdrop-blur-sm overflow-hidden text-primary-foreground hover:bg-white/20 transition-all duration-300">
+                    <!-- Image -->
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="<?php echo esc_url($product['image']); ?>"
+                             alt="<?php echo esc_attr($product['title']); ?>"
+                             class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300">
                     </div>
-                    <h3 class="font-bold text-base md:text-lg mb-1">
-                        <?php echo esc_html($product['title']); ?>
-                    </h3>
-                    <p class="text-xs md:text-sm text-primary-foreground/70 hidden sm:block"><?php echo esc_html($product['description']); ?></p>
+                    <!-- Label -->
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-base md:text-lg">
+                            <?php echo esc_html($product['title']); ?>
+                        </h3>
+                    </div>
                 </a>
             <?php endforeach; ?>
         </div>
