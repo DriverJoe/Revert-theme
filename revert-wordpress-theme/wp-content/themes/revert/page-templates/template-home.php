@@ -116,7 +116,7 @@ $cta_btn_2_link = get_field('cta_button_2_link') ?: home_url('/distributor');
 
     <div class="container relative z-10">
         <!-- Hero text -->
-        <div class="text-center text-primary-foreground pt-20 pb-12 md:pt-28 md:pb-16">
+        <div class="text-center text-primary-foreground pt-24 pb-16 md:pt-32 md:pb-20">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 max-w-4xl mx-auto leading-tight">
                 <?php echo esc_html($hero_title); ?>
             </h1>
