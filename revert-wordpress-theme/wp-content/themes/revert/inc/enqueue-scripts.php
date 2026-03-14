@@ -23,29 +23,11 @@ function revert_enqueue_assets() {
         '1.0.0'
     );
 
-    // Alpine.js (from CDN)
-    wp_enqueue_script(
-        'alpine',
-        'https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js',
-        array(),
-        '3.14.8',
-        array('strategy' => 'defer')
-    );
-
-    // Navigation JS
-    wp_enqueue_script(
-        'revert-navigation',
-        get_template_directory_uri() . '/assets/js/navigation.js',
-        array('alpine'),
-        '1.0.0',
-        true
-    );
-
-    // Components JS
+    // Components JS — must load BEFORE Alpine so functions are defined when Alpine initializes
     wp_enqueue_script(
         'revert-components',
         get_template_directory_uri() . '/assets/js/components.js',
-        array('alpine'),
+        array(),
         '1.0.0',
         true
     );
@@ -55,5 +37,23 @@ function revert_enqueue_assets() {
         'ajaxurl' => admin_url('admin-ajax.php'),
         'nonce'   => wp_create_nonce('revert_ajax_nonce'),
     ));
+
+    // Navigation JS
+    wp_enqueue_script(
+        'revert-navigation',
+        get_template_directory_uri() . '/assets/js/navigation.js',
+        array(),
+        '1.0.0',
+        true
+    );
+
+    // Alpine.js (from CDN) — loaded last with defer so it finds all component functions
+    wp_enqueue_script(
+        'alpine',
+        'https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js',
+        array('revert-components', 'revert-navigation'),
+        '3.14.8',
+        array('strategy' => 'defer')
+    );
 }
 add_action('wp_enqueue_scripts', 'revert_enqueue_assets');
