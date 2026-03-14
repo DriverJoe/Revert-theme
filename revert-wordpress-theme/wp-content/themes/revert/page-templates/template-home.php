@@ -18,8 +18,8 @@ $hero_btn_2_text = get_field('hero_button_2_text') ?: 'Find A Distributor';
 $hero_btn_2_link = get_field('hero_button_2_link') ?: home_url('/distributor');
 
 // --- Solutions Section Fields ---
-$solutions_title = get_field('solutions_title') ?: 'What Are You Looking For?';
-$solutions_subtitle = get_field('solutions_subtitle') ?: 'Select your area to browse products';
+$solutions_title = get_field('solutions_title') ?: 'Our Solutions';
+$solutions_subtitle = get_field('solutions_subtitle') ?: '';
 
 $solutions = array();
 $solution_defaults = array(
@@ -76,7 +76,7 @@ for ($i = 1; $i <= 3; $i++) {
 
 // --- Testimonials Section Fields ---
 $test_title = get_field('testimonials_title') ?: 'What Farmers Are Saying';
-$test_subtitle = get_field('testimonials_subtitle') ?: '';
+$test_subtitle = get_field('testimonials_subtitle') ?: 'Real results from real farmers across Australia';
 
 $testimonials = array();
 $test_defaults = array(
@@ -106,54 +106,52 @@ $cta_btn_2_text = get_field('cta_button_2_text') ?: 'Find A Distributor';
 $cta_btn_2_link = get_field('cta_button_2_link') ?: home_url('/distributor');
 ?>
 
-<!-- Hero — clean, impactful -->
-<section class="relative h-[500px] md:h-[550px] flex items-center overflow-hidden">
-    <div class="absolute inset-0 bg-cover bg-center"
-         style="background-image: url('<?php echo esc_url($hero_image); ?>')">
-        <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/60"></div>
-    </div>
-    <div class="container relative z-10 text-primary-foreground">
-        <div class="max-w-2xl">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-                <?php echo esc_html($hero_title); ?>
-            </h1>
-            <p class="text-lg md:text-xl mb-8 opacity-90">
-                <?php echo esc_html($hero_subtitle); ?>
-            </p>
-            <div class="flex flex-col sm:flex-row gap-3">
-                <a href="<?php echo esc_url($hero_btn_1_link); ?>"
-                   class="inline-flex items-center justify-center h-12 px-8 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors font-medium">
-                    <?php echo esc_html($hero_btn_1_text); ?>
-                    <?php echo revert_get_icon('arrow-right', 'ml-2 h-5 w-5'); ?>
-                </a>
-                <a href="<?php echo esc_url($hero_btn_2_link); ?>"
-                   class="inline-flex items-center justify-center h-12 px-8 rounded-md border border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground hover:text-primary transition-colors font-medium">
-                    <?php echo revert_get_icon('map-pin', 'mr-2 h-4 w-4'); ?>
-                    <?php echo esc_html($hero_btn_2_text); ?>
-                </a>
+<!-- Hero + Solutions — one cohesive section -->
+<section class="relative overflow-hidden">
+    <!-- Hero background -->
+    <div class="relative h-[420px] md:h-[460px] flex items-center">
+        <div class="absolute inset-0 bg-cover bg-center"
+             style="background-image: url('<?php echo esc_url($hero_image); ?>')">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/60"></div>
+        </div>
+        <div class="container relative z-10 text-primary-foreground">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                    <?php echo esc_html($hero_title); ?>
+                </h1>
+                <p class="text-lg mb-6 opacity-90 max-w-xl">
+                    <?php echo esc_html($hero_subtitle); ?>
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="<?php echo esc_url($hero_btn_1_link); ?>"
+                       class="inline-flex items-center justify-center h-11 px-8 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors font-medium">
+                        <?php echo esc_html($hero_btn_1_text); ?>
+                        <?php echo revert_get_icon('arrow-right', 'ml-2 h-4 w-4'); ?>
+                    </a>
+                    <a href="<?php echo esc_url($hero_btn_2_link); ?>"
+                       class="inline-flex items-center justify-center h-11 px-8 rounded-md border border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground hover:text-primary transition-colors font-medium">
+                        <?php echo revert_get_icon('map-pin', 'mr-2 h-4 w-4'); ?>
+                        <?php echo esc_html($hero_btn_2_text); ?>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</section>
 
-<!-- Solutions — "See it, pick it" -->
-<section class="py-16 bg-background">
-    <div class="container">
-        <div class="text-center mb-10">
-            <h2 class="text-3xl font-bold mb-2"><?php echo esc_html($solutions_title); ?></h2>
-            <p class="text-muted-foreground"><?php echo esc_html($solutions_subtitle); ?></p>
-        </div>
-
+    <!-- Solution cards — overlapping the hero bottom -->
+    <div class="container relative z-10 -mt-16 pb-16">
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             <?php foreach ($solutions as $product) : ?>
                 <a href="<?php echo esc_url($product['link']); ?>"
-                   class="group bg-card rounded-lg border p-6 text-center hover:shadow-md transition-all duration-200">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                        <?php echo revert_get_icon($product['icon'], 'h-7 w-7 text-accent'); ?>
+                   class="group bg-card rounded-lg border shadow-md hover:shadow-lg transition-all duration-200 p-5">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
+                            <?php echo revert_get_icon($product['icon'], 'h-5 w-5 text-accent'); ?>
+                        </div>
+                        <h3 class="font-bold group-hover:text-accent transition-colors">
+                            <?php echo esc_html($product['title']); ?>
+                        </h3>
                     </div>
-                    <h3 class="text-lg font-bold mb-1 group-hover:text-accent transition-colors">
-                        <?php echo esc_html($product['title']); ?>
-                    </h3>
                     <p class="text-sm text-muted-foreground"><?php echo esc_html($product['description']); ?></p>
                 </a>
             <?php endforeach; ?>
@@ -161,7 +159,7 @@ $cta_btn_2_link = get_field('cta_button_2_link') ?: home_url('/distributor');
     </div>
 </section>
 
-<!-- Why ReVert — concise -->
+<!-- Why ReVert -->
 <section class="py-16 bg-muted">
     <div class="container">
         <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -171,7 +169,9 @@ $cta_btn_2_link = get_field('cta_button_2_link') ?: home_url('/distributor');
                 <ul class="space-y-4">
                     <?php foreach ($sust_points as $point) : ?>
                         <li class="flex items-start gap-3">
-                            <?php echo revert_get_icon($point['icon'], 'h-6 w-6 text-accent mt-0.5 flex-shrink-0'); ?>
+                            <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <?php echo revert_get_icon($point['icon'], 'h-4 w-4 text-accent'); ?>
+                            </div>
                             <div>
                                 <h4 class="font-semibold"><?php echo esc_html($point['title']); ?></h4>
                                 <p class="text-sm text-muted-foreground"><?php echo esc_html($point['description']); ?></p>
@@ -197,17 +197,21 @@ $cta_btn_2_link = get_field('cta_button_2_link') ?: home_url('/distributor');
     </div>
 </section>
 
-<!-- Testimonials — compact -->
+<!-- Testimonials -->
 <section class="py-16 bg-background">
     <div class="container">
-        <h2 class="text-3xl font-bold text-center mb-8"><?php echo esc_html($test_title); ?></h2>
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold mb-2"><?php echo esc_html($test_title); ?></h2>
+            <?php if ($test_subtitle) : ?>
+                <p class="text-muted-foreground"><?php echo esc_html($test_subtitle); ?></p>
+            <?php endif; ?>
+        </div>
 
         <div class="grid md:grid-cols-3 gap-6">
             <?php foreach ($testimonials as $testimonial) : ?>
                 <div class="bg-card rounded-lg border p-5">
-                    <!-- Stat -->
                     <div class="flex items-center gap-3 mb-3 pb-3 border-b">
-                        <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                        <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
                             <?php echo revert_get_icon($testimonial['icon'], 'h-5 w-5 text-accent'); ?>
                         </div>
                         <div>
@@ -215,13 +219,11 @@ $cta_btn_2_link = get_field('cta_button_2_link') ?: home_url('/distributor');
                             <p class="text-xs text-muted-foreground"><?php echo esc_html($testimonial['stat_label']); ?></p>
                         </div>
                     </div>
-                    <!-- Quote -->
                     <blockquote class="text-sm text-muted-foreground mb-4 leading-relaxed">
                         &ldquo;<?php echo esc_html($testimonial['quote']); ?>&rdquo;
                     </blockquote>
-                    <!-- Person -->
                     <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xs">
+                        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xs flex-shrink-0">
                             <?php echo esc_html(substr($testimonial['name'], 0, 1)); ?>
                         </div>
                         <div>
@@ -235,7 +237,7 @@ $cta_btn_2_link = get_field('cta_button_2_link') ?: home_url('/distributor');
     </div>
 </section>
 
-<!-- CTA — short and direct -->
+<!-- CTA -->
 <section class="py-12 bg-primary text-primary-foreground">
     <div class="container text-center">
         <h2 class="text-3xl font-bold mb-3"><?php echo esc_html($cta_title); ?></h2>
