@@ -116,7 +116,7 @@ $cta_btn_2_link = get_field('cta_button_2_link') ?: home_url('/distributor');
 
     <div class="container relative z-10">
         <!-- Hero text -->
-        <div class="text-center text-primary-foreground pt-40 pb-32 md:pt-56 md:pb-44 lg:pt-64 lg:pb-52">
+        <div class="text-center text-primary-foreground pt-48 pb-40 md:pt-72 md:pb-60 lg:pt-96 lg:pb-72">
             <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 max-w-4xl mx-auto leading-tight">
                 <?php echo esc_html($hero_title); ?>
             </h1>
@@ -137,7 +137,7 @@ $cta_btn_2_link = get_field('cta_button_2_link') ?: home_url('/distributor');
         </div>
 
         <!-- Solution cards — rounded bubble style -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 pb-16">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 pb-20">
             <?php foreach ($solutions as $product) : ?>
                 <a href="<?php echo esc_url($product['link']); ?>"
                    class="group bg-card rounded-2xl border shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
