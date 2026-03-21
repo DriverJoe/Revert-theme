@@ -50,6 +50,7 @@ add_action('after_setup_theme', 'revert_theme_setup');
 function revert_solution_page_rewrites() {
     add_rewrite_rule('^products/horticulture/?$', 'index.php?pagename=products/horticulture', 'top');
     add_rewrite_rule('^products/commercial/?$', 'index.php?pagename=products/commercial', 'top');
+    add_rewrite_rule('^products/livestock/?$', 'index.php?pagename=products/livestock', 'top');
 }
 add_action('init', 'revert_solution_page_rewrites');
 
