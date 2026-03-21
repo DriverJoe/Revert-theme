@@ -10,8 +10,8 @@ get_header();
 
 $contact_title = get_field('contact_title') ?: 'Contact Us';
 $contact_subtitle = get_field('contact_subtitle') ?: 'Get in touch with our team. We\'re here to help with any questions.';
-$contact_email = get_field('contact_email') ?: 'info@revertagri.com.au';
-$contact_phone = get_field('contact_phone') ?: '+61 2 3456 7890';
+$contact_email = get_field('contact_email') ?: 'info@bactivate.example.com';
+$contact_phone = get_field('contact_phone') ?: '+1 (555) 012-3456';
 $contact_location = get_field('contact_location') ?: 'Australia';
 $contact_form_title = get_field('contact_form_title') ?: 'Send Us A Message';
 $contact_form_subtitle = get_field('contact_form_subtitle') ?: 'Fill out the form below and we\'ll get back to you within 24 hours';

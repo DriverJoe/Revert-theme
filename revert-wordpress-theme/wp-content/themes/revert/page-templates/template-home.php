@@ -104,8 +104,8 @@ $cta_btn_2_link = get_field('cta_button_2_link') ?: home_url('/distributor');
                 </a>
             </div>
             <div style="margin-top: 2rem;">
-                <a href="tel:+61XXXXXXXXX" class="inline-flex items-center gap-2 text-primary-foreground font-medium" style="font-size: 1.1rem; opacity: 0.9; text-decoration: none; text-shadow: 0 1px 6px rgba(0,0,0,0.15);">
-                    <?php echo revert_get_icon('phone', 'h-5 w-5'); ?> Call us: 1300 XXX XXX
+                <a href="tel:+15550123456" class="inline-flex items-center gap-2 text-primary-foreground font-medium" style="font-size: 1.1rem; opacity: 0.9; text-decoration: none; text-shadow: 0 1px 6px rgba(0,0,0,0.15);">
+                    <?php echo revert_get_icon('phone', 'h-5 w-5'); ?> Call us: +1 (555) 012-3456
                 </a>
             </div>
         </div>

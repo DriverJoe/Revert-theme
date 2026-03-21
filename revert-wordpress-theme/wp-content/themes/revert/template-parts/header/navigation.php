@@ -1,3 +1,4 @@
+<style>a:hover .nav-dropdown-desc { color: inherit !important; }</style>
 <nav class="container flex h-16 items-center justify-between" x-data="{ openMenu: null }">
     <!-- Logo -->
     <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center space-x-2">
@@ -19,6 +20,12 @@
         )); ?>
     <?php else : ?>
         <div class="hidden lg:flex items-center gap-1">
+            <!-- About Us -->
+            <a href="<?php echo esc_url(home_url('/about')); ?>"
+               class="inline-flex h-9 items-center justify-center rounded-md px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors">
+                About Us
+            </a>
+
             <!-- Products Dropdown -->
             <div class="relative"
                  @mouseenter="openMenu = 'products'"
@@ -40,50 +47,71 @@
                      style="display: none;">
                     <ul class="grid grid-cols-2 gap-3">
                         <li>
-                            <a href="<?php echo esc_url(home_url('/products/crop-solutions')); ?>"
+                            <a href="<?php echo esc_url(home_url('/products/')); ?>"
+                               class="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground transition-colors">
+                                <div class="text-sm font-medium">All Products</div>
+                                <p class="text-sm text-muted-foreground nav-dropdown-desc">Browse our full product range</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo esc_url(home_url('/crop-solutions')); ?>"
                                class="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground transition-colors">
                                 <div class="text-sm font-medium">Crop Solutions</div>
-                                <p class="text-sm text-muted-foreground">Advanced crop protection and nutrition</p>
+                                <p class="text-sm text-muted-foreground nav-dropdown-desc">Advanced crop protection and nutrition</p>
                             </a>
                         </li>
                         <li>
                             <a href="<?php echo esc_url(home_url('/products/horticulture')); ?>"
                                class="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground transition-colors">
                                 <div class="text-sm font-medium">Horticulture</div>
-                                <p class="text-sm text-muted-foreground">Specialized horticultural solutions</p>
+                                <p class="text-sm text-muted-foreground nav-dropdown-desc">Vegetables, berries, fruit trees, hydroponics</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo esc_url(home_url('/products/commercial-turf')); ?>"
+                               class="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground transition-colors">
+                                <div class="text-sm font-medium">Commercial Turf</div>
+                                <p class="text-sm text-muted-foreground nav-dropdown-desc">Golf courses, bowling greens, parks</p>
                             </a>
                         </li>
                         <li>
                             <a href="<?php echo esc_url(home_url('/products/livestock')); ?>"
                                class="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground transition-colors">
-                                <div class="text-sm font-medium">Livestock</div>
-                                <p class="text-sm text-muted-foreground">Comprehensive livestock care</p>
+                                <div class="text-sm font-medium">Pasture & Livestock</div>
+                                <p class="text-sm text-muted-foreground nav-dropdown-desc">Pasture management and livestock care</p>
                             </a>
                         </li>
                         <li>
                             <a href="<?php echo esc_url(home_url('/products/pest-management')); ?>"
                                class="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground transition-colors">
                                 <div class="text-sm font-medium">Pest Management</div>
-                                <p class="text-sm text-muted-foreground">Integrated pest solutions</p>
+                                <p class="text-sm text-muted-foreground nav-dropdown-desc">Integrated pest solutions</p>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Find A Distributor -->
+            <!-- Find A Reseller -->
             <a href="<?php echo esc_url(home_url('/distributor')); ?>"
                class="inline-flex h-9 items-center justify-center rounded-md px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors">
-                Find A Distributor
+                Find A Reseller
             </a>
 
-            <!-- About -->
-            <a href="<?php echo esc_url(home_url('/about')); ?>"
+            <!-- Technical Sheets -->
+            <a href="<?php echo esc_url(home_url('/technical-sheets')); ?>"
                class="inline-flex h-9 items-center justify-center rounded-md px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors">
-                About Us
+                Technical Sheets
             </a>
 
-            <!-- Contact -->
+            <!-- Phone Number -->
+            <a href="tel:+15550123456"
+               class="inline-flex h-9 items-center justify-center gap-1.5 rounded-md px-4 py-2 text-sm font-medium hover:text-primary transition-colors">
+                <?php echo revert_get_icon('phone', 'h-4 w-4'); ?>
+                +1 (555) 012-3456
+            </a>
+
+            <!-- Contact Us -->
             <a href="<?php echo esc_url(home_url('/contact')); ?>"
                class="inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
                 Contact Us

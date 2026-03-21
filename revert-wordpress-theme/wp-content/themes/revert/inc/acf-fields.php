@@ -817,8 +817,8 @@ if (function_exists('acf_add_local_field_group')) {
 
             // --- Contact Info ---
             array('key' => 'field_contact_info_tab', 'label' => 'Contact Info', 'type' => 'tab'),
-            array('key' => 'field_contact_email', 'label' => 'Email Address', 'name' => 'contact_email', 'type' => 'email', 'placeholder' => 'info@revertagri.com.au', 'instructions' => 'Business email address'),
-            array('key' => 'field_contact_phone', 'label' => 'Phone Number', 'name' => 'contact_phone', 'type' => 'text', 'placeholder' => '+61 2 3456 7890'),
+            array('key' => 'field_contact_email', 'label' => 'Email Address', 'name' => 'contact_email', 'type' => 'email', 'placeholder' => 'info@bactivate.example.com', 'instructions' => 'Business email address'),
+            array('key' => 'field_contact_phone', 'label' => 'Phone Number', 'name' => 'contact_phone', 'type' => 'text', 'placeholder' => '+1 (555) 012-3456'),
             array('key' => 'field_contact_location', 'label' => 'Location', 'name' => 'contact_location', 'type' => 'text', 'placeholder' => 'Australia'),
 
             // --- Form Settings ---

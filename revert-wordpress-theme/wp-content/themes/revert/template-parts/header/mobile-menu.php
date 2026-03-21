@@ -31,15 +31,35 @@
 
         <!-- Mobile Navigation -->
         <nav class="flex flex-col gap-4 mt-12">
+            <!-- Phone Number - prominent and tappable -->
+            <a href="tel:+15550123456"
+               class="flex items-center gap-2 text-xl font-bold text-primary py-3 px-4 -mx-4 rounded-md"
+               style="background-color: hsla(155,16%,26%,0.1);"
+               @click="mobileMenuOpen = false">
+                <?php echo revert_get_icon('phone', 'h-5 w-5'); ?>
+                +1 (555) 012-3456
+            </a>
+
             <a href="<?php echo esc_url(home_url('/')); ?>"
                class="text-lg font-semibold hover:text-primary transition-colors"
                @click="mobileMenuOpen = false">
                 Home
             </a>
 
+            <a href="<?php echo esc_url(home_url('/about')); ?>"
+               class="text-lg font-semibold hover:text-primary transition-colors"
+               @click="mobileMenuOpen = false">
+                About Us
+            </a>
+
             <div class="flex flex-col gap-2">
                 <span class="text-sm font-semibold text-muted-foreground">Products</span>
-                <a href="<?php echo esc_url(home_url('/products/crop-solutions')); ?>"
+                <a href="<?php echo esc_url(home_url('/products/')); ?>"
+                   class="text-sm pl-4 hover:text-primary transition-colors"
+                   @click="mobileMenuOpen = false">
+                    All Products
+                </a>
+                <a href="<?php echo esc_url(home_url('/crop-solutions')); ?>"
                    class="text-sm pl-4 hover:text-primary transition-colors"
                    @click="mobileMenuOpen = false">
                     Crop Solutions
@@ -49,10 +69,15 @@
                    @click="mobileMenuOpen = false">
                     Horticulture
                 </a>
+                <a href="<?php echo esc_url(home_url('/products/commercial-turf')); ?>"
+                   class="text-sm pl-4 hover:text-primary transition-colors"
+                   @click="mobileMenuOpen = false">
+                    Commercial Turf
+                </a>
                 <a href="<?php echo esc_url(home_url('/products/livestock')); ?>"
                    class="text-sm pl-4 hover:text-primary transition-colors"
                    @click="mobileMenuOpen = false">
-                    Livestock
+                    Pasture & Livestock
                 </a>
                 <a href="<?php echo esc_url(home_url('/products/pest-management')); ?>"
                    class="text-sm pl-4 hover:text-primary transition-colors"
@@ -64,13 +89,13 @@
             <a href="<?php echo esc_url(home_url('/distributor')); ?>"
                class="text-lg font-semibold hover:text-primary transition-colors"
                @click="mobileMenuOpen = false">
-                Find A Distributor
+                Find A Reseller
             </a>
 
-            <a href="<?php echo esc_url(home_url('/about')); ?>"
+            <a href="<?php echo esc_url(home_url('/technical-sheets')); ?>"
                class="text-lg font-semibold hover:text-primary transition-colors"
                @click="mobileMenuOpen = false">
-                About Us
+                Technical Sheets
             </a>
 
             <a href="<?php echo esc_url(home_url('/contact')); ?>"
