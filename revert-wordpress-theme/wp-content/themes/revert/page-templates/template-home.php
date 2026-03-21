@@ -9,24 +9,24 @@
 get_header();
 
 // --- Hero Section Fields ---
-$hero_title = get_field('hero_title') ?: 'Innovating Agriculture for a Sustainable Future';
-$hero_subtitle = get_field('hero_subtitle') ?: 'Leading the way in sustainable agricultural solutions';
+$hero_title = get_field('hero_title') ?: 'Better Crops. Lower Costs.';
+$hero_subtitle = get_field('hero_subtitle') ?: 'Biological solutions that save money and grow better crops for commercial growers across Australia';
 $hero_image = get_field('hero_image') ?: get_template_directory_uri() . '/assets/images/hero-agriculture.jpg';
 $hero_btn_1_text = get_field('hero_button_1_text') ?: 'Explore Products';
 $hero_btn_1_link = get_field('hero_button_1_link') ?: home_url('/products');
-$hero_btn_2_text = get_field('hero_button_2_text') ?: 'Learn More';
-$hero_btn_2_link = get_field('hero_button_2_link') ?: home_url('/about');
+$hero_btn_2_text = get_field('hero_button_2_text') ?: 'Talk to Us';
+$hero_btn_2_link = get_field('hero_button_2_link') ?: home_url('/contact');
 
 // --- Solutions Section Fields ---
 $solutions_title = get_field('solutions_title') ?: 'Our Solutions';
-$solutions_subtitle = get_field('solutions_subtitle') ?: 'Comprehensive agricultural solutions designed for every aspect of modern farming';
+$solutions_subtitle = get_field('solutions_subtitle') ?: 'Programs by sector for commercial growers';
 
 $solutions = array();
 $solution_defaults = array(
     array('title' => 'Crop Solutions', 'description' => 'Advanced crop protection and nutrition', 'image' => 'crop-solutions.jpg', 'link' => home_url('/crop-solutions'), 'icon' => 'sprout'),
-    array('title' => 'Horticulture', 'description' => 'Specialized horticultural solutions', 'image' => 'horticulture.jpg', 'link' => home_url('/products/horticulture'), 'icon' => 'leaf'),
-    array('title' => 'Livestock', 'description' => 'Comprehensive livestock care', 'image' => 'livestock.jpg', 'link' => home_url('/products/livestock'), 'icon' => 'heart'),
-    array('title' => 'Research', 'description' => 'Innovation and case studies', 'image' => 'research.jpg', 'link' => home_url('/research/innovation'), 'icon' => 'microscope'),
+    array('title' => 'Horticulture', 'description' => 'Specialized horticultural solutions', 'image' => 'horticulture.jpg', 'link' => home_url('/horticulture'), 'icon' => 'leaf'),
+    array('title' => 'Commercial Turf', 'description' => 'Golf courses, bowling greens & parks', 'image' => 'commercial-turf.jpg', 'link' => home_url('/commercial'), 'icon' => 'heart'),
+    array('title' => 'Pasture & Livestock', 'description' => 'Pasture management and livestock care', 'image' => 'livestock.jpg', 'link' => home_url('/products/livestock'), 'icon' => 'microscope'),
 );
 
 for ($i = 1; $i <= 4; $i++) {
@@ -41,48 +41,15 @@ for ($i = 1; $i <= 4; $i++) {
     );
 }
 
-// --- Sustainability Section Fields ---
-$sust_title = get_field('sustainability_title') ?: 'Committed to Sustainable Agriculture';
-$sust_desc = get_field('sustainability_description') ?: 'Our mission is to empower farmers with innovative, sustainable solutions that enhance productivity while protecting the environment.';
-
-$sust_points = array();
-$sust_point_defaults = array(
-    array('icon' => 'shield', 'title' => 'Eco-Friendly Products', 'description' => 'All our products are designed with environmental sustainability in mind'),
-    array('icon' => 'droplet', 'title' => 'Water Conservation', 'description' => 'Helping farms reduce water usage while maximizing crop yields'),
-    array('icon' => 'sprout', 'title' => 'Soil Health', 'description' => 'Promoting long-term soil vitality and regenerative practices'),
-);
-for ($i = 1; $i <= 3; $i++) {
-    $d = $sust_point_defaults[$i - 1];
-    $sust_points[] = array(
-        'icon'        => get_field("sustainability_point_{$i}_icon") ?: $d['icon'],
-        'title'       => get_field("sustainability_point_{$i}_title") ?: $d['title'],
-        'description' => get_field("sustainability_point_{$i}_description") ?: $d['description'],
-    );
-}
-
-$stats = array();
-$stat_defaults = array(
-    array('label' => 'Carbon Footprint Reduction', 'value' => 85),
-    array('label' => 'Customer Satisfaction', 'value' => 95),
-    array('label' => 'Yield Improvement', 'value' => 72),
-);
-for ($i = 1; $i <= 3; $i++) {
-    $d = $stat_defaults[$i - 1];
-    $stats[] = array(
-        'label' => get_field("stat_{$i}_label") ?: $d['label'],
-        'value' => get_field("stat_{$i}_value") ?: $d['value'],
-    );
-}
-
 // --- Testimonials Section Fields ---
-$test_title = get_field('testimonials_title') ?: 'What Farmers Are Saying';
-$test_subtitle = get_field('testimonials_subtitle') ?: 'Real results from real farmers across Australia';
+$test_title = get_field('testimonials_title') ?: 'Real Results from Real Growers';
+$test_subtitle = get_field('testimonials_subtitle') ?: 'Commercial growers across Australia are seeing the difference';
 
 $testimonials = array();
 $test_defaults = array(
-    array('quote' => 'Since switching to ReVert biologicals, we\'ve seen a significant improvement in soil health and our pasture quality has never been better. The results speak for themselves.', 'name' => 'Mark T.', 'role' => 'Dairy Farmer', 'location' => 'Gippsland, VIC', 'stat' => '35%', 'stat_label' => 'Yield Increase', 'icon' => 'trending-up'),
-    array('quote' => 'The team at ReVert really understand soil biology. Their products have helped us reduce our chemical inputs while maintaining strong crop performance across our vegetable operation.', 'name' => 'Sarah K.', 'role' => 'Vegetable Grower', 'location' => 'Werribee, VIC', 'stat' => '40%', 'stat_label' => 'Reduced Inputs', 'icon' => 'leaf'),
-    array('quote' => 'We\'ve been able to improve our soil structure dramatically. Water retention is up, erosion is down, and our livestock are thriving on healthier pastures.', 'name' => 'David L.', 'role' => 'Cattle Farmer', 'location' => 'Hamilton, VIC', 'stat' => '50%', 'stat_label' => 'Better Water Retention', 'icon' => 'droplet'),
+    array('quote' => 'Since switching to ReVert, we\'ve cut our fertilizer bill by over $40,000 a year. The soil is healthier and our yields are up. It just makes financial sense.', 'name' => 'Mark T.', 'role' => 'Broadacre Cropper', 'location' => 'Western VIC', 'stat' => '$40k+', 'stat_label' => 'Annual Savings', 'icon' => 'trending-up'),
+    array('quote' => 'We were spending a fortune on conventional inputs. ReVert cut our costs and our turf quality actually improved. The greens have never looked better.', 'name' => 'Sarah K.', 'role' => 'Golf Course Superintendent', 'location' => 'Mornington Peninsula, VIC', 'stat' => '50%', 'stat_label' => 'Cost Reduction', 'icon' => 'trending-up'),
+    array('quote' => 'Simple to apply with our existing boom spray. No complicated programs. Just better soil, better crops and money back in our pocket.', 'name' => 'David L.', 'role' => 'Mixed Farmer', 'location' => 'Gippsland, VIC', 'stat' => '35%', 'stat_label' => 'Yield Improvement', 'icon' => 'sprout'),
 );
 for ($i = 1; $i <= 3; $i++) {
     $d = $test_defaults[$i - 1];
@@ -98,59 +65,73 @@ for ($i = 1; $i <= 3; $i++) {
 }
 
 // --- CTA Section Fields ---
-$cta_title = get_field('cta_title') ?: 'Ready to Transform Your Agriculture?';
-$cta_desc = get_field('cta_description') ?: 'Connect with our experts to find the perfect solutions for your farming needs';
+$cta_title = get_field('cta_title') ?: 'Ready to Cut Costs and Grow Better Crops?';
+$cta_desc = get_field('cta_description') ?: 'Talk to our team about the right program for your operation';
 $cta_btn_1_text = get_field('cta_button_1_text') ?: 'Get In Touch';
 $cta_btn_1_link = get_field('cta_button_1_link') ?: home_url('/contact');
 $cta_btn_2_text = get_field('cta_button_2_text') ?: 'Find A Distributor';
 $cta_btn_2_link = get_field('cta_button_2_link') ?: home_url('/distributor');
 ?>
 
-<!-- Hero + Solutions — single section, Neutrog-inspired -->
+<!-- Hero + Solutions — single combined section -->
 <section class="relative bg-primary overflow-hidden">
     <!-- Background image -->
     <div class="absolute inset-0 bg-cover bg-center"
          style="background-image: url('<?php echo esc_url($hero_image); ?>')">
-        <div class="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/50 to-primary/80"></div>
+        <div class="absolute inset-0" style="background: linear-gradient(to bottom, hsla(155,16%,26%,0.80) 0%, hsla(155,16%,26%,0.60) 40%, hsla(155,16%,26%,0.88) 100%);"></div>
     </div>
 
     <div class="container relative z-10">
-        <!-- Hero text -->
-        <div class="text-center text-primary-foreground pt-48 pb-40 md:pt-72 md:pb-60 lg:pt-96 lg:pb-72">
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 max-w-4xl mx-auto leading-tight">
+        <!-- Hero title at the top -->
+        <div class="text-center text-primary-foreground" style="padding-top: 8rem; padding-bottom: 3rem;">
+            <h1 class="font-bold max-w-4xl mx-auto leading-tight" style="font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: 1.5rem; text-shadow: 0 2px 20px rgba(0,0,0,0.3);">
                 <?php echo esc_html($hero_title); ?>
             </h1>
-            <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto opacity-90">
+            <p class="max-w-3xl mx-auto" style="font-size: clamp(1.1rem, 2.5vw, 1.5rem); opacity: 0.95; margin-bottom: 2.5rem; text-shadow: 0 1px 10px rgba(0,0,0,0.2);">
                 <?php echo esc_html($hero_subtitle); ?>
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="<?php echo esc_url($hero_btn_1_link); ?>"
-                   class="inline-flex items-center justify-center h-12 px-10 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors font-medium text-lg">
+                   class="inline-flex items-center justify-center rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors font-medium text-lg"
+                   style="padding: 0.85rem 2.75rem;">
                     <?php echo esc_html($hero_btn_1_text); ?>
                     <?php echo revert_get_icon('arrow-right', 'ml-2 h-5 w-5'); ?>
                 </a>
                 <a href="<?php echo esc_url($hero_btn_2_link); ?>"
-                   class="inline-flex items-center justify-center h-12 px-10 rounded-md border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary transition-colors font-medium text-lg">
+                   class="inline-flex items-center justify-center rounded-md border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary transition-colors font-medium text-lg"
+                   style="padding: 0.85rem 2.75rem;">
                     <?php echo esc_html($hero_btn_2_text); ?>
+                </a>
+            </div>
+            <div style="margin-top: 2rem;">
+                <a href="tel:+61XXXXXXXXX" class="inline-flex items-center gap-2 text-primary-foreground font-medium" style="font-size: 1.1rem; opacity: 0.9; text-decoration: none; text-shadow: 0 1px 6px rgba(0,0,0,0.15);">
+                    <?php echo revert_get_icon('phone', 'h-5 w-5'); ?> Call us: 1300 XXX XXX
                 </a>
             </div>
         </div>
 
-        <!-- Solution cards — rounded bubble style -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 pb-20">
+        <!-- Our Solutions title -->
+        <div class="text-center" style="padding-top: 2rem; padding-bottom: 1.5rem;">
+            <h2 class="font-bold text-primary-foreground" style="font-size: clamp(1.5rem, 3vw, 2.25rem); margin-bottom: 0.5rem; text-shadow: 0 1px 10px rgba(0,0,0,0.2);"><?php echo esc_html($solutions_title); ?></h2>
+            <p style="font-size: 1rem; opacity: 0.85; max-width: 640px; margin: 0 auto; color: hsl(90,12%,95%); text-shadow: 0 1px 6px rgba(0,0,0,0.15);"><?php echo esc_html($solutions_subtitle); ?></p>
+        </div>
+
+        <!-- Solution cards at the bottom -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8" style="padding-bottom: 3.5rem;">
             <?php foreach ($solutions as $product) : ?>
                 <a href="<?php echo esc_url($product['link']); ?>"
-                   class="group bg-card rounded-2xl border shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-                    <div class="aspect-[4/3] overflow-hidden">
+                   class="group bg-card rounded-2xl border shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden" style="display: flex; flex-direction: column;">
+                    <div class="overflow-hidden" style="height: 180px; flex-shrink: 0;">
                         <img src="<?php echo esc_url($product['image']); ?>"
                              alt="<?php echo esc_attr($product['title']); ?>"
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                             class="w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                             style="width: 100%; height: 180px; object-fit: cover;">
                     </div>
-                    <div class="p-5 text-center">
-                        <h3 class="font-bold text-lg text-foreground group-hover:text-accent transition-colors">
+                    <div class="text-center" style="padding: 1rem 1.25rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
+                        <h3 class="font-bold text-lg text-foreground group-hover:text-accent transition-colors" style="margin-bottom: 0.25rem;">
                             <?php echo esc_html($product['title']); ?>
                         </h3>
-                        <p class="text-sm text-muted-foreground mt-1"><?php echo esc_html($product['description']); ?></p>
+                        <p class="text-sm text-muted-foreground" style="margin: 0;"><?php echo esc_html($product['description']); ?></p>
                     </div>
                 </a>
             <?php endforeach; ?>
@@ -158,41 +139,128 @@ $cta_btn_2_link = get_field('cta_button_2_link') ?: home_url('/distributor');
     </div>
 </section>
 
-<!-- Sustainability Section -->
-<section class="py-20 bg-muted">
+<!-- Why ReVert -->
+<section class="py-20" style="background-color: hsl(90,12%,95%);">
     <div class="container">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 class="text-4xl font-bold mb-6"><?php echo esc_html($sust_title); ?></h2>
-                <p class="text-lg text-muted-foreground mb-6">
-                    <?php echo esc_html($sust_desc); ?>
-                </p>
-                <ul class="space-y-4">
-                    <?php foreach ($sust_points as $point) : ?>
-                        <li class="flex items-start gap-3">
-                            <?php echo revert_get_icon($point['icon'], 'h-6 w-6 text-accent mt-1 flex-shrink-0'); ?>
-                            <div>
-                                <h4 class="font-semibold mb-1"><?php echo esc_html($point['title']); ?></h4>
-                                <p class="text-sm text-muted-foreground"><?php echo esc_html($point['description']); ?></p>
-                            </div>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
+        <div class="text-center" style="margin-bottom: 3rem;">
+            <h2 class="text-4xl font-bold" style="margin-bottom: 0.75rem;">Why ReVert?</h2>
+            <p class="text-lg text-muted-foreground" style="max-width: 600px; margin: 0 auto;">Practical results for commercial growers</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-card rounded-lg border p-6 text-center">
+                <div style="display: flex; justify-content: center; margin-bottom: 0;">
+                    <?php echo revert_get_icon('trending-up', 'h-8 w-8 text-accent'); ?>
+                </div>
+                <h3 class="font-bold text-lg" style="margin: 1rem 0 0.5rem;">Cost Effective</h3>
+                <p class="text-sm text-muted-foreground">Cut fertilizer costs by up to 50% with biological alternatives that deliver real savings</p>
             </div>
-            <div class="space-y-6">
-                <?php foreach ($stats as $stat) : ?>
-                    <div>
-                        <div class="flex justify-between mb-2">
-                            <span class="font-semibold"><?php echo esc_html($stat['label']); ?></span>
-                            <span class="text-accent font-bold"><?php echo esc_html($stat['value']); ?>%</span>
-                        </div>
-                        <div class="w-full bg-background rounded-full h-3">
-                            <div class="bg-accent h-3 rounded-full" style="width: <?php echo intval($stat['value']); ?>%"></div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+            <div class="bg-card rounded-lg border p-6 text-center">
+                <div style="display: flex; justify-content: center; margin-bottom: 0;">
+                    <?php echo revert_get_icon('sprout', 'h-8 w-8 text-accent'); ?>
+                </div>
+                <h3 class="font-bold text-lg" style="margin: 1rem 0 0.5rem;">Proven Results</h3>
+                <p class="text-sm text-muted-foreground">Better yields, healthier soil and stronger crops backed by real-world commercial trials</p>
+            </div>
+            <div class="bg-card rounded-lg border p-6 text-center">
+                <div style="display: flex; justify-content: center; margin-bottom: 0;">
+                    <?php echo revert_get_icon('shield', 'h-8 w-8 text-accent'); ?>
+                </div>
+                <h3 class="font-bold text-lg" style="margin: 1rem 0 0.5rem;">Australian Made</h3>
+                <p class="text-sm text-muted-foreground">Manufactured right here in Australia for Australian conditions and Australian growers</p>
+            </div>
+            <div class="bg-card rounded-lg border p-6 text-center">
+                <div style="display: flex; justify-content: center; margin-bottom: 0;">
+                    <?php echo revert_get_icon('droplet', 'h-8 w-8 text-accent'); ?>
+                </div>
+                <h3 class="font-bold text-lg" style="margin: 1rem 0 0.5rem;">Easy to Use</h3>
+                <p class="text-sm text-muted-foreground">Apply with standard boom spray equipment — no special gear or complicated programs needed</p>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- Product Spotlight -->
+<section class="py-20" style="background-color: white;">
+    <div class="container">
+        <div class="text-center" style="margin-bottom: 3rem;">
+            <h2 class="text-4xl font-bold" style="margin-bottom: 0.75rem;">Featured Products</h2>
+            <p class="text-lg text-muted-foreground" style="max-width: 600px; margin: 0 auto;">Trusted by commercial growers Australia-wide</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-card rounded-lg border p-6">
+                <h3 class="font-bold text-xl" style="margin-bottom: 0.75rem;">Bac 5</h3>
+                <p class="text-sm text-muted-foreground" style="margin-bottom: 1rem;">5-strain biological blend for soil regeneration and crop performance</p>
+                <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem 0;">
+                    <li class="text-sm" style="padding: 0.35rem 0; display: flex; align-items: flex-start; gap: 0.5rem;">
+                        <?php echo revert_get_icon('trending-up', 'h-4 w-4 text-accent'); ?>
+                        <span>Reduce fertilizer costs by up to 50%</span>
+                    </li>
+                    <li class="text-sm" style="padding: 0.35rem 0; display: flex; align-items: flex-start; gap: 0.5rem;">
+                        <?php echo revert_get_icon('sprout', 'h-4 w-4 text-accent'); ?>
+                        <span>Improved soil health and structure</span>
+                    </li>
+                    <li class="text-sm" style="padding: 0.35rem 0; display: flex; align-items: flex-start; gap: 0.5rem;">
+                        <?php echo revert_get_icon('droplet', 'h-4 w-4 text-accent'); ?>
+                        <span>Available in liquid, powder and granule</span>
+                    </li>
+                </ul>
+                <a href="<?php echo esc_url(home_url('/products/bac-5')); ?>" class="text-sm font-semibold text-accent" style="text-decoration: none;">View Product →</a>
+            </div>
+            <div class="bg-card rounded-lg border p-6">
+                <h3 class="font-bold text-xl" style="margin-bottom: 0.75rem;">BioBoost</h3>
+                <p class="text-sm text-muted-foreground" style="margin-bottom: 1rem;">Plant carbon stimulant that feeds soil biology and boosts crop performance</p>
+                <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem 0;">
+                    <li class="text-sm" style="padding: 0.35rem 0; display: flex; align-items: flex-start; gap: 0.5rem;">
+                        <?php echo revert_get_icon('trending-up', 'h-4 w-4 text-accent'); ?>
+                        <span>Maximise nutrient uptake efficiency</span>
+                    </li>
+                    <li class="text-sm" style="padding: 0.35rem 0; display: flex; align-items: flex-start; gap: 0.5rem;">
+                        <?php echo revert_get_icon('sprout', 'h-4 w-4 text-accent'); ?>
+                        <span>Stronger root development</span>
+                    </li>
+                    <li class="text-sm" style="padding: 0.35rem 0; display: flex; align-items: flex-start; gap: 0.5rem;">
+                        <?php echo revert_get_icon('droplet', 'h-4 w-4 text-accent'); ?>
+                        <span>Easy application via boom spray</span>
+                    </li>
+                </ul>
+                <a href="<?php echo esc_url(home_url('/products/bioboost')); ?>" class="text-sm font-semibold text-accent" style="text-decoration: none;">View Product →</a>
+            </div>
+            <div class="bg-card rounded-lg border p-6">
+                <h3 class="font-bold text-xl" style="margin-bottom: 0.75rem;">Seaweed</h3>
+                <p class="text-sm text-muted-foreground" style="margin-bottom: 1rem;">Organic seaweed fertilizer for root growth and plant resilience</p>
+                <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem 0;">
+                    <li class="text-sm" style="padding: 0.35rem 0; display: flex; align-items: flex-start; gap: 0.5rem;">
+                        <?php echo revert_get_icon('trending-up', 'h-4 w-4 text-accent'); ?>
+                        <span>Improved crop stress tolerance</span>
+                    </li>
+                    <li class="text-sm" style="padding: 0.35rem 0; display: flex; align-items: flex-start; gap: 0.5rem;">
+                        <?php echo revert_get_icon('sprout', 'h-4 w-4 text-accent'); ?>
+                        <span>Enhanced root zone activity</span>
+                    </li>
+                    <li class="text-sm" style="padding: 0.35rem 0; display: flex; align-items: flex-start; gap: 0.5rem;">
+                        <?php echo revert_get_icon('droplet', 'h-4 w-4 text-accent'); ?>
+                        <span>Compatible with all spray programs</span>
+                    </li>
+                </ul>
+                <a href="<?php echo esc_url(home_url('/products/seaweed')); ?>" class="text-sm font-semibold text-accent" style="text-decoration: none;">View Product →</a>
+            </div>
+        </div>
+        <div class="text-center" style="margin-top: 2.5rem;">
+            <a href="<?php echo esc_url(home_url('/products')); ?>" class="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground font-medium" style="padding: 0.75rem 2rem; text-decoration: none;">
+                View All Products
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Find a Reseller -->
+<section class="py-16 bg-primary text-primary-foreground">
+    <div class="container text-center">
+        <h2 class="text-3xl font-bold" style="margin-bottom: 0.75rem;">Find Your Local Reseller</h2>
+        <p style="font-size: 1.1rem; opacity: 0.9; max-width: 500px; margin: 0 auto 2rem;">Get ReVert products from a reseller near you</p>
+        <a href="<?php echo esc_url(home_url('/distributor')); ?>" class="inline-flex items-center justify-center rounded-md bg-secondary text-secondary-foreground font-medium" style="padding: 0.85rem 2.5rem; text-decoration: none; font-size: 1.05rem;">
+            Find a Reseller
+        </a>
     </div>
 </section>
 
@@ -251,11 +319,11 @@ $cta_btn_2_link = get_field('cta_button_2_link') ?: home_url('/distributor');
             </div>
             <div class="flex items-center gap-2 text-muted-foreground">
                 <?php echo revert_get_icon('microscope', 'h-5 w-5 text-accent'); ?>
-                <span class="text-sm font-medium">Scientifically Proven</span>
+                <span class="text-sm font-medium">Proven on Commercial Farms</span>
             </div>
             <div class="flex items-center gap-2 text-muted-foreground">
                 <?php echo revert_get_icon('heart', 'h-5 w-5 text-accent'); ?>
-                <span class="text-sm font-medium">Trusted by 500+ Farmers</span>
+                <span class="text-sm font-medium">Trusted by Commercial Growers</span>
             </div>
         </div>
     </div>
