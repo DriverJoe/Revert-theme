@@ -44,6 +44,16 @@ function revert_theme_setup() {
 add_action('after_setup_theme', 'revert_theme_setup');
 
 /**
+ * Add rewrite rules for solution pages under /products/ so they
+ * take priority over the revert_product CPT slug.
+ */
+function revert_solution_page_rewrites() {
+    add_rewrite_rule('^products/horticulture/?$', 'index.php?pagename=products/horticulture', 'top');
+    add_rewrite_rule('^products/commercial/?$', 'index.php?pagename=products/commercial', 'top');
+}
+add_action('init', 'revert_solution_page_rewrites');
+
+/**
  * Disable Gutenberg block editor for pages using ACF-powered templates.
  * This ensures ACF fields are prominently displayed in the classic editor.
  */

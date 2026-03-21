@@ -24,8 +24,8 @@ $solutions_subtitle = get_field('solutions_subtitle') ?: 'Programs by sector for
 $solutions = array();
 $solution_defaults = array(
     array('title' => 'Crop Solutions', 'description' => 'Advanced crop protection and nutrition', 'image' => 'crop-solutions.jpg', 'link' => home_url('/crop-solutions'), 'icon' => 'sprout'),
-    array('title' => 'Horticulture', 'description' => 'Specialized horticultural solutions', 'image' => 'horticulture.jpg', 'link' => home_url('/horticulture'), 'icon' => 'leaf'),
-    array('title' => 'Commercial Turf', 'description' => 'Golf courses, bowling greens & parks', 'image' => 'commercial-turf.jpg', 'link' => home_url('/commercial'), 'icon' => 'heart'),
+    array('title' => 'Horticulture', 'description' => 'Specialized horticultural solutions', 'image' => 'horticulture.jpg', 'link' => home_url('/products/horticulture'), 'icon' => 'leaf'),
+    array('title' => 'Commercial Turf', 'description' => 'Golf courses, bowling greens & parks', 'image' => 'commercial-turf.jpg', 'link' => home_url('/products/commercial'), 'icon' => 'heart'),
     array('title' => 'Pasture & Livestock', 'description' => 'Pasture management and livestock care', 'image' => 'livestock.jpg', 'link' => home_url('/products/livestock'), 'icon' => 'microscope'),
 );
 
