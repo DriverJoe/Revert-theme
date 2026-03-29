@@ -30,8 +30,39 @@ $products_cta_button_2_link = get_field('products_cta_button_2_link') ?: home_ur
     </div>
 </section>
 
-<!-- Product Categories — large visual cards -->
+<!-- Solution Areas — always visible -->
 <section class="py-12 bg-background">
+    <div class="container">
+        <h2 class="text-2xl font-bold mb-6">Solutions By Sector</h2>
+        <?php
+        $solutions = array(
+            array('title' => 'Crop Solutions', 'desc' => 'Biologicals, nutrition and soil health for broadacre and cropping', 'icon' => 'sprout', 'link' => home_url('/crop-solutions')),
+            array('title' => 'Horticulture Solutions', 'desc' => 'Targeted solutions for fruit, vegetable and vine growers', 'icon' => 'leaf', 'link' => home_url('/horticulture')),
+            array('title' => 'Commercial Applications', 'desc' => 'Turf, golf courses, bowling greens, regeneration and restoration projects', 'icon' => 'trending-up', 'link' => home_url('/commercial')),
+            array('title' => 'Livestock Solutions', 'desc' => 'Comprehensive health management to promote optimal livestock wellbeing', 'icon' => 'heart', 'link' => home_url('/livestock')),
+            array('title' => 'Pest Management', 'desc' => 'Integrated pest and disease management products', 'icon' => 'shield', 'link' => home_url('/pest-management')),
+        );
+        ?>
+        <div class="grid md:grid-cols-2 gap-6">
+            <?php foreach ($solutions as $sol) : ?>
+                <a href="<?php echo esc_url($sol['link']); ?>"
+                   class="group flex items-center gap-6 bg-card rounded-lg border p-6 hover:shadow-md transition-all duration-200">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                        <?php echo revert_get_icon($sol['icon'], 'h-8 w-8 text-accent'); ?>
+                    </div>
+                    <div class="flex-grow">
+                        <h2 class="text-xl font-bold mb-1 group-hover:text-accent transition-colors"><?php echo esc_html($sol['title']); ?></h2>
+                        <p class="text-sm text-muted-foreground"><?php echo esc_html($sol['desc']); ?></p>
+                    </div>
+                    <?php echo revert_get_icon('arrow-right', 'h-5 w-5 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all flex-shrink-0'); ?>
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<!-- Product Categories — by type -->
+<section class="py-12 bg-muted/50">
     <div class="container">
         <?php
         $categories = get_terms(array(
@@ -41,7 +72,6 @@ $products_cta_button_2_link = get_field('products_cta_button_2_link') ?: home_ur
             'order' => 'ASC',
         ));
 
-        // Icon mapping for categories
         $icon_map = array(
             'biologicals' => 'sprout',
             'stimulants' => 'trending-up',
@@ -51,61 +81,35 @@ $products_cta_button_2_link = get_field('products_cta_button_2_link') ?: home_ur
             'program-packs' => 'folder',
             'specialty-products' => 'shield',
             'raw-products' => 'leaf',
+            'bactivate-max' => 'microscope',
+            'revert-range' => 'sprout',
+            'pest-control' => 'shield',
+            'soil-amendments' => 'leaf',
         );
 
         if (!empty($categories) && !is_wp_error($categories)) :
         ?>
-            <div class="grid md:grid-cols-2 gap-6">
+            <h2 class="text-2xl font-bold mb-6">Browse By Product Category</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <?php foreach ($categories as $category) :
                     $category_link = get_term_link($category);
                     $icon = isset($icon_map[$category->slug]) ? $icon_map[$category->slug] : 'sprout';
                     $count = $category->count;
                 ?>
                     <a href="<?php echo esc_url($category_link); ?>"
-                       class="group flex items-center gap-6 bg-card rounded-lg border p-6 hover:shadow-md transition-all duration-200">
-                        <!-- Icon -->
-                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                            <?php echo revert_get_icon($icon, 'h-8 w-8 text-accent'); ?>
+                       class="group flex items-center gap-4 bg-card rounded-lg border p-4 hover:shadow-md transition-all duration-200">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                            <?php echo revert_get_icon($icon, 'h-6 w-6 text-accent'); ?>
                         </div>
-                        <!-- Text -->
                         <div class="flex-grow">
-                            <h2 class="text-xl font-bold mb-1 group-hover:text-accent transition-colors">
+                            <h3 class="font-bold group-hover:text-accent transition-colors">
                                 <?php echo esc_html($category->name); ?>
-                            </h2>
-                            <?php if ($category->description) : ?>
-                                <p class="text-sm text-muted-foreground"><?php echo esc_html($category->description); ?></p>
-                            <?php endif; ?>
+                            </h3>
                             <?php if ($count > 0) : ?>
-                                <p class="text-xs text-muted-foreground mt-1"><?php echo $count; ?> product<?php echo $count !== 1 ? 's' : ''; ?></p>
+                                <p class="text-xs text-muted-foreground"><?php echo $count; ?> product<?php echo $count !== 1 ? 's' : ''; ?></p>
                             <?php endif; ?>
                         </div>
-                        <!-- Arrow -->
-                        <?php echo revert_get_icon('arrow-right', 'h-5 w-5 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all flex-shrink-0'); ?>
-                    </a>
-                <?php endforeach; ?>
-            </div>
-        <?php else : ?>
-            <!-- No categories yet — show the 4 main solution areas as static cards -->
-            <?php
-            $solutions = array(
-                array('title' => 'Crop Solutions', 'desc' => 'Biologicals, nutrition and soil health for broadacre and cropping', 'icon' => 'sprout', 'link' => home_url('/crop-solutions')),
-                array('title' => 'Horticulture', 'desc' => 'Targeted solutions for fruit, vegetable and vine growers', 'icon' => 'leaf', 'link' => home_url('/horticulture')),
-                array('title' => 'Livestock', 'desc' => 'Pasture health, feed supplements and animal wellbeing', 'icon' => 'heart', 'link' => home_url('/livestock')),
-                array('title' => 'Pest Management', 'desc' => 'Integrated pest and disease management products', 'icon' => 'shield', 'link' => home_url('/pest-management')),
-            );
-            ?>
-            <div class="grid md:grid-cols-2 gap-6">
-                <?php foreach ($solutions as $sol) : ?>
-                    <a href="<?php echo esc_url($sol['link']); ?>"
-                       class="group flex items-center gap-6 bg-card rounded-lg border p-6 hover:shadow-md transition-all duration-200">
-                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                            <?php echo revert_get_icon($sol['icon'], 'h-8 w-8 text-accent'); ?>
-                        </div>
-                        <div class="flex-grow">
-                            <h2 class="text-xl font-bold mb-1 group-hover:text-accent transition-colors"><?php echo esc_html($sol['title']); ?></h2>
-                            <p class="text-sm text-muted-foreground"><?php echo esc_html($sol['desc']); ?></p>
-                        </div>
-                        <?php echo revert_get_icon('arrow-right', 'h-5 w-5 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all flex-shrink-0'); ?>
+                        <?php echo revert_get_icon('arrow-right', 'h-4 w-4 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all flex-shrink-0'); ?>
                     </a>
                 <?php endforeach; ?>
             </div>
